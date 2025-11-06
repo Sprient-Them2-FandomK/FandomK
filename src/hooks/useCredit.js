@@ -24,12 +24,12 @@ const useCredit = () => {
   };
 
   /** 크레딧 차감 */
-  const subtract = (num) => {
+  const subtractCredit = (num) => {
     if (!isEnoughCredit(num)) return;
     setCredit((prev) => prev - num);
   };
 
-  return { credit, resetCredit, isEnoughCredit, addCredit, subtract };
+  return { credit, resetCredit, isEnoughCredit, addCredit, subtractCredit };
 };
 
 export default useCredit;
