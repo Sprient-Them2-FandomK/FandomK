@@ -1,0 +1,131 @@
+.container {
+    background-color: var(--black-02000E);
+    width: 100vw;
+}
+
+section {
+    height: 1200px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.firstSection {
+    height: 1080px;
+}
+
+.firstSectionBox {
+    height: 100%;
+    width: 1080px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+}
+
+.logoContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 29px;
+    color: #FFFFFFDE;
+    font-weight: 700;
+    font-size: 26px;
+    margin-top: 140px;
+    z-index: 1;
+}
+
+.logoContainer span {
+    color: var(--orange-F96D69);
+}
+
+.firstSectionBox > img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    transform: translateY(-5%);
+    object-fit: contain;
+}
+
+.startButton {
+    width: 477px;
+    height: 48px;
+    background: linear-gradient(to right, #F86F65, #FE5493);
+    border-radius: 3px;
+    text-align: center;
+    line-height: 48px;
+    font-weight: 700;
+    font-size: 14px;
+    margin-bottom: 120px;
+    z-index: 1;
+    color: white;
+    cursor: pointer;
+
+}
+
+.sectionBox {
+    height: 100%;
+    width: 1200px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+}
+
+@media(max-width: 1079px) {
+    .firstSection {
+        height: 1200px;
+    }
+
+    .firstSectionBox {
+        width: 100%;
+        overflow: hidden;
+    }
+    .logoContainer {
+        gap: 32px;
+        font-size: 20px;
+        margin-top: 120px;
+    }
+    .logoContainer > img {
+        width: 325.34px;
+        height: 62px;
+    }
+
+    .firstSectionBox > img {
+        position: absolute;
+        left: 0px;
+        right: 0px;
+        top: 50%;
+        transform: translateY(-50%) scale(111.2%);
+    }
+}
+
+@media(max-width: 576px) {
+    .firstSection {
+        height: 812px;
+    }
+
+    .logoContainer {
+        gap: 20px;
+        font-weight: 400;
+        margin-top: 100px;
+    }
+
+    .logoContainer > img {
+        width: 236.64px;
+        height: 45.1px;
+    }    
+
+    .firstSectionBox > img {
+        transform: translateY(-50%) scale(121.6%);
+    }
+
+    .startButton {
+        width: 230px;
+        font-weight: 400;
+        margin-bottom: 100px;
+    }
+}
