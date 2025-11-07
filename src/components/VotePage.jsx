@@ -1,6 +1,7 @@
 import VoteItem from "@/components/VoteItem";
 import React, { useEffect, useState } from "react";
 import styled from "styled-components";
+import closePng from "../assets/btn_delete_24px.png";
 
 export default function VotePage() {
   const [list, setList] = useState([]);
@@ -36,40 +37,54 @@ export default function VotePage() {
 
   return (
     <Container>
-      <Header>
-        <Title>이달의 여자 아이돌</Title>
-        <CloseBtn aria-label="닫기"></CloseBtn>
-      </Header>
+      <Modal>
+        <Header>
+          <Title>이달의 여자 아이돌</Title>
+          <CloseBtn aria-label="닫기"></CloseBtn>
+        </Header>
 
-      <List>
-        {list.map(c => (
-          <VoteItem
-            key={c.id}
-            id={c.id}
-            img={c.img || "/images/placeholder.jpg"}
-            rank={c.rank}
-            name={c.name}
-            votes={c.votes}
-            selected={selectedId === c.id}
-            onSelect={setSelectedId}
-          />
-        ))}
-      </List>
+        <List>
+          {list.map(c => (
+            <VoteItem
+              key={c.id}
+              id={c.id}
+              img={c.img || "/images/placeholder.jpg"}
+              rank={c.rank}
+              name={c.name}
+              votes={c.votes}
+              selected={selectedId === c.id}
+              onSelect={setSelectedId}
+            />
+          ))}
+        </List>
 
-      <Vote>
-        <Votebtn disabled={!selectedId} onClick={submit}>
-          투표하기
-        </Votebtn>
-        <VoteNotice>
-          투표하는데 <Credit>1000</Credit> 크레딧이 소모됩니다.
-        </VoteNotice>
-      </Vote>
+        <Vote>
+          <Votebtn disabled={!selectedId} onClick={submit}>
+            투표하기
+          </Votebtn>
+          <VoteNotice>
+            투표하는데 <Credit>1000</Credit> 크레딧이 소모됩니다.
+          </VoteNotice>
+        </Vote>
+      </Modal>
     </Container>
   );
 }
 
+const Container = styled.div` /* 임시 모달창 뒤에 보이는 페이지 */
+  position: fixed;    
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.7); 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;          
+`;
 
-const Container = styled.div`
+const Modal = styled.div`
   width:525px;
   height:693px;
   background:#181D26;
@@ -88,7 +103,7 @@ display:flex;
 justify-content:space-between;`;
 
 const Title = styled.h2`
-font-size:20px;
+font-size:18px;
 font-weight:700;
 margin:0;`;
 
@@ -98,7 +113,10 @@ cursor:pointer;
 color:#fff;
 width:24px;
 height: 24px;
-background:url(../assets/btn_delete_24px.png) no-repeat center/cover;
+padding:0;
+margin:0;
+appearance: none;
+background: transparent url(${closePng}) no-repeat center / contain;
 border:0;`;
 
 const List = styled.div`
@@ -119,6 +137,7 @@ text-align:center;`;
 const Votebtn = styled.button`
   width:100%;
   height:42px;
+  font-size : 14px;
   cursor:pointer;
   background:linear-gradient(90deg, rgba(248,111,101,1) 0%, rgba(254,84,147,1) 100%);
   border:0;

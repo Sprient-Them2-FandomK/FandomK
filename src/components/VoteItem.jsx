@@ -2,13 +2,16 @@ import React from "react";
 import styled from "styled-components";
 
 export default function VoteItem({ id, img, rank, name, votes, selected, onSelect  }) {
+
+    const commaNum = (num) => num.toLocaleString();
+
   return (
     <Item $selected={selected} onClick={() => onSelect(id)}>
       <Img src={img} alt={name} />
       <Rank>{rank}</Rank>
       <TextGroup>
         <Name>{name}</Name>
-        <ListVotes>{votes}표</ListVotes>
+        <ListVotes>{commaNum(votes)}표</ListVotes>
       </TextGroup>
       <RadioVisual $selected={selected} />
     </Item>
@@ -36,7 +39,8 @@ const Img = styled.img`
 `;
 
 const Rank = styled.span`
-  font-size: 16px;
+  font-size: 14px;
+  color:rgba(249, 109, 105, 1);
 `;
 
 const TextGroup = styled.div`
@@ -44,18 +48,19 @@ const TextGroup = styled.div`
 `;
 
 const Name = styled.p`
-  font-size: 16px;
+  font-size: 14px;
   font-weight: 600;
 `;
 
 const ListVotes = styled.p`
   font-size: 14px;
   color: #aaa;
+  margin: 4px 0 0;
 `;
 
 const RadioVisual = styled.span`
-  width: 18px;
-  height: 18px;
+  width: 16px;
+  height: 16px;
   border-radius: 50%;
   border: 2px solid ${({ $selected }) => ($selected ? "#F96D69" : "#666")};
   display: flex;
@@ -64,8 +69,8 @@ const RadioVisual = styled.span`
 
   &::after {
     content: "";
-    width: 9px;
-    height: 9px;
+    width: 8px;
+    height: 8px;
     border-radius: 50%;
     background: ${({ $selected }) => ($selected ? "#F96D69" : "transparent")};
     transition: background 0.2s ease;
