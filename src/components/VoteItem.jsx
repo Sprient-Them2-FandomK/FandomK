@@ -3,7 +3,7 @@ import styled from "styled-components";
 
 export default function VoteItem({ id, img, rank, name, votes, selected, onSelect  }) {
 
-    const commaNum = (num) => num.toLocaleString();
+    const commaNum = (num) => Number(num).toLocaleString();
 
   return (
     <Item $selected={selected} onClick={() => onSelect(id)}>
