@@ -1,225 +1,236 @@
 .container {
-    background-color: var(--black-02000E);
-    width: 100vw;
+  background-color: var(--black-02000E);
+  width: 100vw;
+}
+
+.blind {
+  position: absolute;
+  clip: rect(0 0 0 0);
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
 }
 
 section {
-    height: 1200px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+  height: 1200px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.firstSectionTitle {
+  font-size: 2.6rem;
+  line-height: 3.1rem;
+  font-weight: 700;
+  color: #ffffffde;
 }
 
 .firstSection {
-    height: 1080px;
+  height: 1080px;
 }
 
 .firstSectionBox {
-    height: 100%;
-    width: 1080px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-between;
-    position: relative;
+  height: 100%;
+  width: 1080px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
 }
 
 .logoContainer {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 29px;
-    color: #FFFFFFDE;
-    font-weight: 700;
-    font-size: 26px;
-    margin-top: 140px;
-    z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 29px;
+  z-index: 1;
+  margin-top: 140px;
 }
 
 .logoContainer span {
-    color: var(--orange-F96D69);
+  color: var(--orange-F96D69);
 }
 
 .firstSectionBox > img {
-    position: absolute;
-    inset: 0;
-    width: 100%;
-    height: 100%;
-    transform: translateY(-5%);
-    object-fit: contain;
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  transform: translateY(-5%);
+  object-fit: contain;
 }
 
 .startButton {
-    width: 477px;
-    height: 48px;
-    background: linear-gradient(to right, #F86F65, #FE5493);
-    border-radius: 3px;
-    text-align: center;
-    line-height: 48px;
-    font-weight: 700;
-    font-size: 14px;
-    margin-bottom: 120px;
-    z-index: 1;
-    color: white;
-    cursor: pointer;
-
+  width: 477px;
+  height: 48px;
+  background: linear-gradient(to right, #f86f65, #fe5493);
+  border-radius: 3px;
+  text-align: center;
+  line-height: 48px;
+  font-weight: 700;
+  font-size: 14px;
+  margin-bottom: 120px;
+  z-index: 1;
+  color: white;
+  cursor: pointer;
 }
 
 .sectionBox {
-    height: 100%;
-    width: 1200px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    position: relative;
+  height: 100%;
+  width: 1200px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
 }
 
 .sectionBg {
-    position: absolute;
-    inset: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
 }
 
 .sectionTitleContainer {
-    display: flex;
-    flex-direction: column;
-    color: white;
-    gap: 8px;
-    align-items: center;
-    z-index: 1;
-    margin-top: 160px;
+  display: flex;
+  flex-direction: column;
+  color: white;
+  gap: 8px;
+  align-items: center;
+  z-index: 1;
+  margin-top: 160px;
 }
 
 .sectionTitle {
-    font-size: 16px;
-    font-weight: 500;
-    color: var(--yellow-Dec030);
+  font-size: 16px;
+  font-weight: 500;
+  color: var(--yellow-Dec030);
 }
 
 .sectionInfo {
-    font-size: 24px;
-    font-weight: 700;
-    text-align: center;
+  font-size: 24px;
+  font-weight: 700;
+  text-align: center;
 }
 
 .sectionImg1 {
-    width: 320px;
-    height: 693.66px;
-    z-index: 1;
-    margin-top: 60px;
+  width: 320px;
+  height: 693.66px;
+  z-index: 1;
+  margin-top: 60px;
 }
 
 .verticalLine {
-    width: 187px;
-    height: 3091px;
-    background: linear-gradient(to bottom, #030615, #051D31, #051E32, #051C30, #030B1C);
+  width: 187px;
+  height: 3091px;
+  background: linear-gradient(to bottom, #030615, #051d31, #051e32, #051c30, #030b1c);
+  position: absolute;
+  top: 1393px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+@media (max-width: 1079px) {
+  section {
+    height: 744px;
+  }
+
+  .firstSection {
+    height: 1200px;
+  }
+
+  .firstSectionBox {
+    width: 100%;
+    overflow: hidden;
+  }
+  .logoContainer {
+    gap: 32px;
+    font-size: 20px;
+    margin-top: 120px;
+  }
+  .logoContainer > img {
+    width: 325.34px;
+    height: 62px;
+  }
+
+  .firstSectionBox > img {
     position: absolute;
-    top: 1393px;
-    left: 50%;
-    transform: translateX(-50%);
+    left: 0px;
+    right: 0px;
+    top: 50%;
+    transform: translateY(-50%) scale(111.2%);
+  }
+
+  .sectionBox {
+    width: 100%;
+  }
+
+  .sectionTitleContainer {
+    margin-top: 84px;
+  }
+
+  .sectionInfo {
+    font-size: 20px;
+  }
+
+  .sectionImg1 {
+    width: 200px;
+    height: 433.54px;
+    margin-top: 47px;
+  }
+
+  .verticalLine {
+    width: 117px;
+    height: 1928px;
+    top: 1394px;
+  }
 }
 
-@media(max-width: 1079px) {
-    section {
-        height: 744px;
-    }
+@media (max-width: 576px) {
+  section {
+    height: 812px;
+  }
 
-    .firstSection {
-        height: 1200px;
-    }
+  .firstSection {
+    height: 812px;
+  }
 
-    .firstSectionBox {
-        width: 100%;
-        overflow: hidden;
-    }
-    .logoContainer {
-        gap: 32px;
-        font-size: 20px;
-        margin-top: 120px;
-    }
-    .logoContainer > img {
-        width: 325.34px;
-        height: 62px;
-    }
+  .logoContainer {
+    gap: 20px;
+    font-weight: 400;
+    margin-top: 100px;
+  }
 
-    .firstSectionBox > img {
-        position: absolute;
-        left: 0px;
-        right: 0px;
-        top: 50%;
-        transform: translateY(-50%) scale(111.2%);
-    }
+  .logoContainer > img {
+    width: 236.64px;
+    height: 45.1px;
+  }
 
-    .sectionBox {
-        width: 100%;
-    }
+  .firstSectionBox > img {
+    transform: translateY(-50%) scale(121.6%);
+  }
 
-    .sectionTitleContainer {
-        margin-top: 84px;
-    }
+  .startButton {
+    width: 230px;
+    font-weight: 400;
+    margin-bottom: 100px;
+  }
 
-    .sectionInfo {
-        font-size: 20px;
-    }
+  .sectionTitleContainer {
+    margin-top: 93px;
+  }
 
-    .sectionImg1 {
-        width: 200px;
-        height: 433.54px;
-        margin-top: 47px;
-    }
+  .sectionImg1 {
+    width: 240px;
+    height: 520.25px;
+  }
 
-    .verticalLine {
-        width: 117px;
-        height: 1928px;
-        top: 1394px;
-    }
-}
-
-@media(max-width: 576px) {
-
-    section {
-        height: 812px;
-    }
-
-    .firstSection {
-        height: 812px;
-    }
-
-    .logoContainer {
-        gap: 20px;
-        font-weight: 400;
-        margin-top: 100px;
-    }
-
-    .logoContainer > img {
-        width: 236.64px;
-        height: 45.1px;
-    }    
-
-    .firstSectionBox > img {
-        transform: translateY(-50%) scale(121.6%);
-    }
-
-    .startButton {
-        width: 230px;
-        font-weight: 400;
-        margin-bottom: 100px;
-    }
-
-    .sectionTitleContainer {
-        margin-top: 93px;
-    }
-
-    .sectionImg1 {
-        width: 240px;
-        height: 520.25px;
-    }
-
-    .verticalLine {
-        height: 2133px;
-        top: 1029px;
-    }
+  .verticalLine {
+    height: 2133px;
+    top: 1029px;
+  }
 }

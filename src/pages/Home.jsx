@@ -21,17 +21,16 @@ function Home() {
     <div className={styles.container}>
       <section className={styles.firstSection}>
         <div className={styles.firstSectionBox}>
-          <img src={imgHome1} alt="지금 시작하기" />
-
+          <h1 className={styles.blind}>팬덤 케이</h1>
           <div className={styles.logoContainer}>
-            <div>
+            <h2 className={styles.firstSectionTitle}>
               내가 좋아하는 아이돌을
               <br />
               가장 <span>쉽게 덕질</span> 하는 방법
-            </div>
-            <img src={imgLogo} alt="로고" />
+            </h2>
+            <img src={imgLogo} alt="팬덤케이 로고" />
           </div>
-
+          <img src={imgHome1} alt="지금 시작하기" />
           <button onClick={goListPage} className={styles.startButton}>
             지금 시작하기
           </button>
