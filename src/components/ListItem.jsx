@@ -41,6 +41,7 @@ const Img = styled.img`
 
 const Rank = styled.span`
   font-size: 14px;
+  font-weight: 400;
   color: rgba(249, 109, 105, 1);
 `;
 
@@ -50,11 +51,12 @@ const TextGroup = styled.div`
 
 const Name = styled.p`
   font-size: 14px;
-  font-weight: 600;
+  font-weight: 500;
 `;
 
 const ListVotes = styled.p`
   font-size: 14px;
+  font-weight: 400;
   color: #aaa;
   margin: 4px 0 0;
 `;

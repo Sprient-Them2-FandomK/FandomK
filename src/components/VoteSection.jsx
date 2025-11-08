@@ -168,7 +168,7 @@ const BackBtn = styled.button`
 
 const Title = styled.h2`
   font-size: 18px;
-  font-weight: 700;
+  font-weight: 500;
   margin: 0;
 `;
 
