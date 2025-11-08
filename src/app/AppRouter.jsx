@@ -1,5 +1,6 @@
 import Home from "@/pages/Home";
 import List from "@/pages/List";
+import Mypage from "@/pages/Mypage";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import RootLayout from "./RootLayout";
 
@@ -15,6 +16,7 @@ const router = createBrowserRouter([
     children: [
       { index: true, element: <Home /> },
       { path: PATHS.LIST, element: <List /> },
+      { path: PATHS.MYPAGE, element: <Mypage /> },
       { path: "*", element: <div>404 에러 쵸비상</div> },
     ],
   },
