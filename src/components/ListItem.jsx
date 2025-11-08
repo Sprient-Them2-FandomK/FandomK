@@ -1,9 +1,8 @@
-import React from "react";
+import React, { memo } from "react";
 import styled from "styled-components";
 
-export default function VoteItem({ id, img, rank, name, votes, selected, onSelect  }) {
-
-    const commaNum = (num) => Number(num).toLocaleString();
+const listItem = ({ id, img, rank, name, votes, selected, onSelect }) => {
+  const commaNum = (num) => Number(num).toLocaleString();
 
   return (
     <Item $selected={selected} onClick={() => onSelect(id)}>
@@ -16,7 +15,9 @@ export default function VoteItem({ id, img, rank, name, votes, selected, onSelec
       <RadioVisual $selected={selected} />
     </Item>
   );
-}
+};
+
+export default memo(listItem);
 
 /* ===== styles ===== */
 const Item = styled.div`
@@ -40,7 +41,7 @@ const Img = styled.img`
 
 const Rank = styled.span`
   font-size: 14px;
-  color:rgba(249, 109, 105, 1);
+  color: rgba(249, 109, 105, 1);
 `;
 
 const TextGroup = styled.div`
