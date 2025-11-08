@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import ListItem from "../ListItem";
+import ListItem from "../ListItem.jsx";
 import {
   Container,
   Modal,
@@ -15,7 +15,7 @@ import {
   BackBtn,
   Rbox,
   TransparentOverlay,
-} from "./VoteStyle.js";
+} from "./VoteSection.style.js";
 
 const VoteSection = () => {
   const [list, setList] = useState([]);
