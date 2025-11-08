@@ -1,9 +1,11 @@
+import { Header } from "@/components/Header";
 import { Outlet } from "react-router-dom";
 
 const RootLayout = () => {
   return (
     <>
-      {/* 나는 루트 레이아웃임 */} <Outlet />
+      <Header />
+      <Outlet />
     </>
   );
 };
