@@ -125,7 +125,7 @@ const Modal = styled.div`
 const Header = styled.div`
   width: 100%;
   height: 24px;
-  padding-bottom: 34px;
+  padding-bottom: 34ㅎpx;
   display: flex;
   justify-content: space-between;
 
