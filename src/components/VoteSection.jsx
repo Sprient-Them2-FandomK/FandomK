@@ -170,6 +170,10 @@ const Title = styled.h2`
   font-size: 18px;
   font-weight: 500;
   margin: 0;
+
+  @media (max-width: 524px) {
+    font-size: 14px;
+  }
 `;
 
 const CloseBtn = styled.button`
