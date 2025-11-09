@@ -19,7 +19,7 @@ jobs:
           node-version: "22"
           cache: npm
       - name: Install dependencies
-        run: npm run ci
+        run: npm ci
       - name: Lint Check
         run: npm run lint
       - name: Build with Next.js
