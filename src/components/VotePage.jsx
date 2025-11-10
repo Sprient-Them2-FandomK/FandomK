@@ -23,13 +23,14 @@ export default function VotePage() {
       .sort((a, b) => b.votes - a.votes)
       .map((i, idx) => ({ ...i, rank: idx + 1 }));
     setList(sorted);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const submit = () => {
     if (!selectedId) return;
-    setList(prev =>
+    setList((prev) =>
       prev
-        .map(c => (c.id === selectedId ? { ...c, votes: c.votes + 1 } : c))
+        .map((c) => (c.id === selectedId ? { ...c, votes: c.votes + 1 } : c))
         .sort((a, b) => b.votes - a.votes)
         .map((i, idx) => ({ ...i, rank: idx + 1 }))
     );
@@ -44,7 +45,7 @@ export default function VotePage() {
         </Header>
 
         <List>
-          {list.map(c => (
+          {list.map((c) => (
             <VoteItem
               key={c.id}
               id={c.id}
@@ -71,81 +72,93 @@ export default function VotePage() {
   );
 }
 
-const Container = styled.div` /* 임시 모달창 뒤에 보이는 페이지 */
-  position: fixed;    
+const Container = styled.div`
+  /* 임시 모달창 뒤에 보이는 페이지 */
+  position: fixed;
   top: 0;
   left: 0;
   width: 100vw;
   height: 100vh;
-  background: rgba(0, 0, 0, 0.7); 
+  background: rgba(0, 0, 0, 0.7);
   display: flex;
   justify-content: center;
   align-items: center;
-  z-index: 999;          
+  z-index: 999;
 `;
 
 const Modal = styled.div`
-  width:525px;
-  height:693px;
-  background:#181D26;
-  padding:24px;
-  overflow:hidden;
-  display:flex;
-  flex-direction:column;
-  color:#fff;
-  border-radius : 16px;
+  width: 525px;
+  height: 693px;
+  background: #181d26;
+  padding: 24px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  color: #fff;
+  border-radius: 16px;
 `;
 
 const Header = styled.div`
-width:100%;
-height:24px;
-display:flex;
-justify-content:space-between;`;
+  width: 100%;
+  height: 24px;
+  display: flex;
+  justify-content: space-between;
+`;
 
 const Title = styled.h2`
-font-size:18px;
-font-weight:700;
-margin:0;`;
+  font-size: 18px;
+  font-weight: 700;
+  margin: 0;
+`;
 
 const CloseBtn = styled.button`
-font-size:24px; 
-cursor:pointer;
-color:#fff;
-width:24px;
-height: 24px;
-padding:0;
-margin:0;
-appearance: none;
-background: transparent url(${closePng}) no-repeat center / contain;
-border:0;`;
+  font-size: 24px;
+  cursor: pointer;
+  color: #fff;
+  width: 24px;
+  height: 24px;
+  padding: 0;
+  margin: 0;
+  appearance: none;
+  background: transparent url(${closePng}) no-repeat center / contain;
+  border: 0;
+`;
 
 const List = styled.div`
-  flex:1;
-  width:100%;
-  min-height:0;
-  margin-top:19px;
-  overflow-y:auto;
-  scrollbar-width:none;
-  -ms-overflow-style:none;
-  &::-webkit-scrollbar{display:none;}
+  flex: 1;
+  width: 100%;
+  min-height: 0;
+  margin-top: 19px;
+  overflow-y: auto;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  &::-webkit-scrollbar {
+    display: none;
+  }
 `;
 
 const Vote = styled.div`
-width:100%;
-text-align:center;`;
-
-const Votebtn = styled.button`
-  width:100%;
-  height:42px;
-  font-size : 14px;
-  cursor:pointer;
-  background:linear-gradient(90deg, rgba(248,111,101,1) 0%, rgba(254,84,147,1) 100%);
-  border:0;
-  border-radius:10px;
-  margin:20px 0 12px;
-  color:#fff;
-  opacity:${({disabled}) => (disabled ? 0.5 : 1)};
+  width: 100%;
+  text-align: center;
 `;
 
-const VoteNotice = styled.p`font-size:12px; margin:0;`;
-const Credit = styled.span`color:rgba(249,109,105,1);`;
+const Votebtn = styled.button`
+  width: 100%;
+  height: 42px;
+  font-size: 14px;
+  cursor: pointer;
+  background: linear-gradient(90deg, rgba(248, 111, 101, 1) 0%, rgba(254, 84, 147, 1) 100%);
+  border: 0;
+  border-radius: 10px;
+  margin: 20px 0 12px;
+  color: #fff;
+  opacity: ${({ disabled }) => (disabled ? 0.5 : 1)};
+`;
+
+const VoteNotice = styled.p`
+  font-size: 12px;
+  margin: 0;
+`;
+const Credit = styled.span`
+  color: rgba(249, 109, 105, 1);
+`;

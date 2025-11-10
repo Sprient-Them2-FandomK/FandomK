@@ -4,7 +4,7 @@ import { creditStorage } from "@/storage/credit.storage";
 import { useState } from "react";
 
 export const MyCredit = () => {
-  const [showRechargeModal, setShowRechargeModal] = useState(false);
+  const [, setShowRechargeModal] = useState(false);
 
   return (
     <Container>
