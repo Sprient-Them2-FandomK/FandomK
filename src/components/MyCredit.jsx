@@ -1,23 +1,36 @@
 import styled from "styled-components";
 import creditImg from "../assets/imgs/credit.png";
-import { creditStorage } from "@/storage/credit.storage";
 import { useState } from "react";
+import { Modal } from "./Modal";
+import { RechargeModalContent } from "./RechargeModalContent";
+import useCreditContext from "@/app/contexts/CreditContext";
 
 export const MyCredit = () => {
-  const [, setShowRechargeModal] = useState(false);
+  const [showRechargeModal, setShowRechargeModal] = useState(false);
+  const credit = useCreditContext()[0];
 
   return (
-    <Container>
-      <CreditContainer>
-        <CreditTitle>내 크레딧</CreditTitle>
-        <CreditPoint>
-          <img src={creditImg} alt="크레딧" />
-          <div>{creditStorage.get().toLocaleString()}</div>
-        </CreditPoint>
-      </CreditContainer>
+    <>
+      <Container>
+        <CreditContainer>
+          <CreditTitle>내 크레딧</CreditTitle>
+          <CreditPoint>
+            <img src={creditImg} alt="크레딧" />
+            <div>{credit.toLocaleString()}</div>
+          </CreditPoint>
+        </CreditContainer>
 
-      <RechargeButton onClick={() => setShowRechargeModal(true)}>충전하기</RechargeButton>
-    </Container>
+        <RechargeButton onClick={() => setShowRechargeModal(true)}>충전하기</RechargeButton>
+      </Container>
+
+      <Modal
+        title="크레딧 충전하기"
+        isOpen={showRechargeModal}
+        onClose={() => setShowRechargeModal(false)}
+      >
+        <RechargeModalContent onClose={() => setShowRechargeModal(false)} />
+      </Modal>
+    </>
   );
 };
 
