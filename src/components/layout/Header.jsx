@@ -1,7 +1,7 @@
 import styled from "styled-components";
-import LogoImg from "../assets/imgs/logo.svg";
-import ProfileImg from "../assets/imgs/profile.png";
-import GlowImg from "../assets/imgs/header_glow.png";
+import LogoImg from "../../assets/imgs/logo.svg";
+import ProfileImg from "../../assets/imgs/profile.png";
+import GlowImg from "../../assets/imgs/header_glow.png";
 import { useLocation, useNavigate } from "react-router-dom";
 
 const Header = () => {
