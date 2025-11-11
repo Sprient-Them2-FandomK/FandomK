@@ -1,25 +1,6 @@
-import React from "react";
 import styled from "styled-components";
 
-export default function VoteItem({ id, img, rank, name, votes, selected, onSelect  }) {
-
-    const commaNum = (num) => Number(num).toLocaleString();
-
-  return (
-    <Item $selected={selected} onClick={() => onSelect(id)}>
-      <Img src={img} alt={name} />
-      <Rank>{rank}</Rank>
-      <TextGroup>
-        <Name>{name}</Name>
-        <ListVotes>{commaNum(votes)}표</ListVotes>
-      </TextGroup>
-      <RadioVisual $selected={selected} />
-    </Item>
-  );
-}
-
-/* ===== styles ===== */
-const Item = styled.div`
+export const Item = styled.div`
   display: flex;
   height: 70px;
   align-items: center;
@@ -30,7 +11,7 @@ const Item = styled.div`
   transition: background 0.2s ease; */
 `;
 
-const Img = styled.img`
+export const Img = styled.img`
   width: 48px;
   height: 48px;
   border-radius: 50%;
@@ -38,27 +19,29 @@ const Img = styled.img`
   object-fit: cover;
 `;
 
-const Rank = styled.span`
+export const Rank = styled.span`
   font-size: 14px;
-  color:rgba(249, 109, 105, 1);
+  font-weight: 400;
+  color: rgba(249, 109, 105, 1);
 `;
 
-const TextGroup = styled.div`
+export const TextGroup = styled.div`
   flex: 1;
 `;
 
-const Name = styled.p`
+export const Name = styled.p`
   font-size: 14px;
-  font-weight: 600;
+  font-weight: 500;
 `;
 
-const ListVotes = styled.p`
+export const ListVotes = styled.p`
   font-size: 14px;
+  font-weight: 400;
   color: #aaa;
   margin: 4px 0 0;
 `;
 
-const RadioVisual = styled.span`
+export const RadioVisual = styled.span`
   width: 16px;
   height: 16px;
   border-radius: 50%;
