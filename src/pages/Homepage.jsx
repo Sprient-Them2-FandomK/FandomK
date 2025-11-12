@@ -1,19 +1,23 @@
 import { useNavigate } from "react-router-dom";
-import imgHome1 from "../assets/imgs/home1.png";
-import phoneImg1 from "../assets/imgs/phone2-1.png";
-import imgHome2 from "../assets/imgs/home2.png";
-import phoneImg2 from "../assets/imgs/phone3-2.png";
-import imgHome3 from "../assets/imgs/home3.png";
-import phoneImg3 from "../assets/imgs/phone4-3.png";
-import imgHome4 from "../assets/imgs/home4.png";
+import imgStartBg from "../assets/imgs/home_start_bg.png";
+import imgSponsorBg from "../assets/imgs/home_sponsor_bg.png";
+import imgSponsorPhone from "../assets/imgs/home_sponsor_phone.png";
+import imgMonthlyBg from "../assets/imgs/home_monthly_bg.png";
+import imgMonthyPhone from "../assets/imgs/home_monthly_phone.png";
+import imgMyArtistBg from "../assets/imgs/home_my_artist_bg.png";
+import imgMyArtistPhone from "../assets/imgs/home_my_artist_phone.png";
+
 import imgLogo from "../assets/imgs/logo.svg";
 import styled from "styled-components";
+import useCreditContext from "@/app/contexts/CreditContext";
 
-function Home() {
+function Homepage() {
   const navigate = useNavigate();
+  const [_, actions] = useCreditContext();
 
   const goListPage = () => {
     localStorage.clear();
+    actions.resetCredit();
     navigate("/list");
   };
 
@@ -30,14 +34,14 @@ function Home() {
             </FirstSectionTitle>
             <img src={imgLogo} alt="팬덤케이 로고" />
           </LogoContainer>
-          <img src={imgHome1} alt="지금 시작하기" />
+          <img src={imgStartBg} alt="지금 시작하기" />
           <StartButton onClick={goListPage}>지금 시작하기</StartButton>
         </FirstSectionBox>
       </FirstSection>
 
       <Section>
         <SectionBox>
-          <SectionBg alt="후원하기 배경" src={imgHome2} />
+          <SectionBg alt="후원하기 배경" src={imgSponsorBg} />
 
           <SectionTitleContainer>
             <SectionTitle>후원하기</SectionTitle>
@@ -48,13 +52,13 @@ function Home() {
             </SectionInfo>
           </SectionTitleContainer>
 
-          <SectionImg1 alt="목록 페이지 모바일 뷰" src={phoneImg1} />
+          <SectionImg1 alt="목록 페이지 모바일 뷰" src={imgSponsorPhone} />
         </SectionBox>
       </Section>
 
       <Section>
         <SectionBox>
-          <SectionBg alt="이달의 아티스트 배경" src={imgHome3} />
+          <SectionBg alt="이달의 아티스트 배경" src={imgMonthlyBg} />
 
           <SectionTitleContainer>
             <SectionTitle>이달의 아티스트</SectionTitle>
@@ -65,13 +69,13 @@ function Home() {
             </SectionInfo>
           </SectionTitleContainer>
 
-          <SectionImg1 alt="마이페이지 모바일 뷰" src={phoneImg2} />
+          <SectionImg1 alt="마이페이지 모바일 뷰" src={imgMonthyPhone} />
         </SectionBox>
       </Section>
 
       <Section>
         <SectionBox>
-          <SectionBg alt="나만의 아티스트 배경" src={imgHome4} />
+          <SectionBg alt="나만의 아티스트 배경" src={imgMyArtistBg} />
 
           <SectionTitleContainer>
             <SectionTitle>나만의 아티스트</SectionTitle>
@@ -82,7 +86,7 @@ function Home() {
             </SectionInfo>
           </SectionTitleContainer>
 
-          <SectionImg1 alt="투표 모달창 모바일 뷰" src={phoneImg3} />
+          <SectionImg1 alt="투표 모달창 모바일 뷰" src={imgMyArtistPhone} />
         </SectionBox>
       </Section>
 
@@ -94,6 +98,7 @@ function Home() {
 const Container = styled.div`
   background-color: var(--black-02000E);
   width: 100vw;
+  overflow-x: hidden;
 `;
 
 const Section = styled.section`
@@ -328,4 +333,4 @@ const VerticalLine = styled.div`
   }
 `;
 
-export default Home;
+export default Homepage;
