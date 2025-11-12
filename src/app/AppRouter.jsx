@@ -1,4 +1,4 @@
-import Home from "@/pages/Home";
+import Homepage from "@/pages/Homepage";
 import List from "@/pages/List";
 import Mypage from "@/pages/Mypage";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
@@ -14,7 +14,7 @@ const router = createBrowserRouter([
   {
     element: <RootLayout />,
     children: [
-      { index: true, element: <Home /> },
+      { index: true, element: <Homepage /> },
       { path: PATHS.LIST, element: <List /> },
       { path: PATHS.MYPAGE, element: <Mypage /> },
       { path: "*", element: <div>404 에러 쵸비상</div> },

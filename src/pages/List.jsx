@@ -1,4 +1,4 @@
-import { MyCredit } from "@/components/MyCredit";
+import { MyCredit } from "@/components/layout/MyCredit";
 
 import VoteSection from "../components/vote/VoteSection.jsx";
 

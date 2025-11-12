@@ -1,13 +1,13 @@
 import styled from "styled-components";
-import creditImg from "../assets/imgs/credit.png";
 import { useState } from "react";
-import { Modal } from "./Modal";
-import { RechargeModalContent } from "./RechargeModalContent";
 import useCreditContext from "@/app/contexts/CreditContext";
+import CreditSvg from "../svg/CreditSvg";
+import Modal from "../common/Modal";
+import RechargeModalContent from "../modal/RechargeModalContent";
 
 export const MyCredit = () => {
   const [showRechargeModal, setShowRechargeModal] = useState(false);
-  const credit = useCreditContext()[0];
+  const [credit] = useCreditContext();
 
   return (
     <>
@@ -15,7 +15,7 @@ export const MyCredit = () => {
         <CreditContainer>
           <CreditTitle>내 크레딧</CreditTitle>
           <CreditPoint>
-            <img src={creditImg} alt="크레딧" />
+            <CreditSvg />
             <div>{credit.toLocaleString()}</div>
           </CreditPoint>
         </CreditContainer>
@@ -78,12 +78,6 @@ const CreditPoint = styled.div`
   font-weight: 700;
   display: flex;
   align-items: center;
-
-  & > img {
-    width: 25px;
-    height: 25px;
-    object-fit: cover;
-  }
 
   @media (max-width: 767px) {
     font-size: 20px;

@@ -1,14 +1,14 @@
 import styled from "styled-components";
-import creditImg from "../assets/imgs/credit.png";
-import creditWhiteImg from "../assets/imgs/credit_white.png";
-import radioOnImg from "../assets/imgs/radio_on.png";
-import radioOffImg from "../assets/imgs/radio_off.png";
 import { useState } from "react";
 import useCreditContext from "@/app/contexts/CreditContext";
+import CreditSvg from "../svg/CreditSvg";
+import RadioOnSvg from "../svg/RadioOnSvg";
+import RadioOffSvg from "../svg/RadioOffSvg";
+import CreditWhite from "../svg/CreditWhiteSvg";
 
 const CREDITS = [100, 500, 1000];
 
-export const RechargeModalContent = ({ onClose }) => {
+const RechargeModalContent = ({ onClose }) => {
   const [selectedCredit, setSelectedCredit] = useState(CREDITS[0]);
 
   const actions = useCreditContext()[1];
@@ -28,14 +28,14 @@ export const RechargeModalContent = ({ onClose }) => {
             selected={it == selectedCredit}
             onClick={() => setSelectedCredit(it)}
           >
-            <CreditIcon src={creditImg} />
+            <CreditSvg size="25px" />
             <div>{it}</div>
-            <RadioButton src={it == selectedCredit ? radioOnImg : radioOffImg} />
+            {it == selectedCredit ? <RadioOnSvg /> : <RadioOffSvg />}
           </Credit>
         ))}
       </CreditList>
       <RechargeButton onClick={onRechargeClick}>
-        <img src={creditWhiteImg} />
+        <CreditWhite />
         <div>충전하기</div>
       </RechargeButton>
     </Container>
@@ -70,16 +70,6 @@ const Credit = styled.div`
   }
 `;
 
-const CreditIcon = styled.img`
-  width: 25px;
-  height: 25px;
-`;
-
-const RadioButton = styled.img`
-  width: 16px;
-  height: 16px;
-`;
-
 const RechargeButton = styled.button`
   width: 295px;
   height: 42px;
@@ -93,9 +83,6 @@ const RechargeButton = styled.button`
   align-items: center;
   justify-content: center;
   cursor: pointer;
-
-  & > img {
-    width: 25px;
-    height: 25px;
-  }
 `;
+
+export default RechargeModalContent;

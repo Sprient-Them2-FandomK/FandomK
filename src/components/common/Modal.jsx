@@ -1,15 +1,15 @@
 import { createPortal } from "react-dom";
 import styled from "styled-components";
-import closeImg from "../assets/imgs/btn_delete_24px.png";
+import CloseButtonSvg from "../svg/CloseButtonSvg";
 
-export const Modal = ({ title, isOpen, onClose, children }) => {
+const Modal = ({ title, isOpen, onClose, children }) => {
   if (!isOpen) return null;
   return createPortal(
-    <Container>
-      <ModalContainer>
+    <Container onClick={() => onClose()}>
+      <ModalContainer onClick={(e) => e.stopPropagation()}>
         <TitleBar>
           <ModalTitle>{title}</ModalTitle>
-          <ModalCloseButton src={closeImg} onClick={() => onClose()} />
+          <CloseButtonSvg onClick={() => onClose()} />
         </TitleBar>
         {children}
       </ModalContainer>
@@ -38,6 +38,9 @@ const TitleBar = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
+  & > svg {
+    cursor: pointer;
+  }
 `;
 
 const ModalTitle = styled.div`
@@ -46,8 +49,4 @@ const ModalTitle = styled.div`
   font-weight: 600;
 `;
 
-const ModalCloseButton = styled.img`
-  width: 24px;
-  height: 24px;
-  cursor: pointer;
-`;
+export default Modal;
