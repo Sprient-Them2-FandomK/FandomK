@@ -1,9 +1,8 @@
-// DonationModalUI.jsx
 import creditImg from "@/assets/imgs/credit.png";
 import Modal from "../common/Modal";
 import * as S from "./DonationModalUi.style";
 
-const DonationModalUI = ({
+const DonationModalUi = ({
   isOpen,
   onClose,
   content,
@@ -51,4 +50,4 @@ const DonationModalUI = ({
   );
 };
 
-export default DonationModalUI;
+export default DonationModalUi;

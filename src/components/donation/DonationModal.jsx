@@ -1,9 +1,8 @@
-// DonationModal.jsx
 import { contributeDonation } from "@/api/donationsClinet";
 import useCreditContext from "@/app/contexts/CreditContext";
 import { isNumber } from "@/utils/number";
 import { useState } from "react";
-import DonationModalUI from "./DonationModalUI";
+import DonationModalUi from "./DonationModalUi";
 
 const DonationModal = ({ onSuccess, isOpen, onClose, content }) => {
   const [donationCredit, setDonationCredit] = useState("");
@@ -55,7 +54,7 @@ const DonationModal = ({ onSuccess, isOpen, onClose, content }) => {
   };
 
   return (
-    <DonationModalUI
+    <DonationModalUi
       isOpen={isOpen}
       onClose={handleClose}
       content={content}
