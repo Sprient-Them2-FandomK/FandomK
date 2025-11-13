@@ -5,7 +5,7 @@ import CreditSvg from "../svg/CreditSvg";
 import Modal from "../common/Modal";
 import RechargeModalContent from "../modal/RechargeModalContent";
 
-export const MyCredit = () => {
+const MyCredit = () => {
   const [showRechargeModal, setShowRechargeModal] = useState(false);
   const [credit] = useCreditContext();
 
@@ -95,3 +95,5 @@ const RechargeButton = styled.button`
     font-size: 13px;
   }
 `;
+
+export default MyCredit;

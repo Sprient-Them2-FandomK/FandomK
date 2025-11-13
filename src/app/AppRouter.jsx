@@ -1,8 +1,8 @@
 import Homepage from "@/pages/Homepage";
-import List from "@/pages/List";
 import Mypage from "@/pages/Mypage";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import RootLayout from "./RootLayout";
+import ListPage from "@/pages/ListPage";
 
 const PATHS = {
   INDEX: "/",
@@ -15,7 +15,7 @@ const router = createBrowserRouter([
     element: <RootLayout />,
     children: [
       { index: true, element: <Homepage /> },
-      { path: PATHS.LIST, element: <List /> },
+      { path: PATHS.LIST, element: <ListPage /> },
       { path: PATHS.MYPAGE, element: <Mypage /> },
       { path: "*", element: <div>404 에러 쵸비상</div> },
     ],
