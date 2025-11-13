@@ -26,6 +26,7 @@ const VoteSection = () => {
       .sort((a, b) => b.votes - a.votes)
       .map((i, idx) => ({ ...i, rank: idx + 1 }));
     setList(sorted);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const submit = () => {

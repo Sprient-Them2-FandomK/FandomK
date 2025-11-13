@@ -1,12 +1,13 @@
+import DonationSection from "@/components/donation/DonationSection.jsx";
 import { MyCredit } from "@/components/MyCredit";
-
-import VoteSection from "../components/vote/VoteSection.jsx";
+import VoteSection from "@/components/vote/VoteSection";
 
 function List() {
   return (
     <>
       <MyCredit />
-      <VoteSection />;
+      <DonationSection />
+      <VoteSection />
     </>
   );
 }
