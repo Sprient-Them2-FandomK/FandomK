@@ -16,84 +16,103 @@ function Homepage() {
   const [_, actions] = useCreditContext();
 
   const goListPage = () => {
-    localStorage.clear();
     actions.resetCredit();
     navigate("/list");
   };
 
   return (
     <Container>
-      <FirstSection>
-        <FirstSectionBox>
-          <Blind>팬덤 케이</Blind>
-          <LogoContainer>
-            <FirstSectionTitle>
-              내가 좋아하는 아이돌을
-              <br />
-              가장 <span>쉽게 덕질</span> 하는 방법
-            </FirstSectionTitle>
-            <img src={imgLogo} alt="팬덤케이 로고" />
-          </LogoContainer>
-          <img src={imgStartBg} alt="지금 시작하기" />
-          <StartButton onClick={goListPage}>지금 시작하기</StartButton>
-        </FirstSectionBox>
-      </FirstSection>
-
-      <Section>
-        <SectionBox>
-          <SectionBg alt="후원하기 배경" src={imgSponsorBg} />
-
-          <SectionTitleContainer>
-            <SectionTitle>후원하기</SectionTitle>
-            <SectionInfo>
-              좋아하는 아이돌에게
-              <br />
-              쉽게 조공해 보세요
-            </SectionInfo>
-          </SectionTitleContainer>
-
-          <SectionImg1 alt="목록 페이지 모바일 뷰" src={imgSponsorPhone} />
-        </SectionBox>
-      </Section>
-
-      <Section>
-        <SectionBox>
-          <SectionBg alt="이달의 아티스트 배경" src={imgMonthlyBg} />
-
-          <SectionTitleContainer>
-            <SectionTitle>이달의 아티스트</SectionTitle>
-            <SectionInfo>
-              내 아티스트에게 1등의
-              <br />
-              영예를 선물하세요
-            </SectionInfo>
-          </SectionTitleContainer>
-
-          <SectionImg1 alt="마이페이지 모바일 뷰" src={imgMonthyPhone} />
-        </SectionBox>
-      </Section>
-
-      <Section>
-        <SectionBox>
-          <SectionBg alt="나만의 아티스트 배경" src={imgMyArtistBg} />
-
-          <SectionTitleContainer>
-            <SectionTitle>나만의 아티스트</SectionTitle>
-            <SectionInfo>
-              좋아하는 아티스트들의
-              <br />
-              소식을 모아보세요
-            </SectionInfo>
-          </SectionTitleContainer>
-
-          <SectionImg1 alt="투표 모달창 모바일 뷰" src={imgMyArtistPhone} />
-        </SectionBox>
-      </Section>
-
+      <StartSection goListPage={goListPage} />
+      <SponsorSection />
+      <MonthlySection />
+      <MyArtistSection />
       <VerticalLine />
     </Container>
   );
 }
+
+const StartSection = ({ goListPage }) => {
+  return (
+    <FirstSection>
+      <FirstSectionBox>
+        <Blind>팬덤 케이</Blind>
+        <LogoContainer>
+          <FirstSectionTitle>
+            내가 좋아하는 아이돌을
+            <br />
+            가장 <span>쉽게 덕질</span> 하는 방법
+          </FirstSectionTitle>
+          <img src={imgLogo} alt="팬덤케이 로고" />
+        </LogoContainer>
+        <img src={imgStartBg} alt="지금 시작하기" />
+        <StartButton onClick={goListPage}>지금 시작하기</StartButton>
+      </FirstSectionBox>
+    </FirstSection>
+  );
+};
+
+const SponsorSection = () => {
+  return (
+    <Section>
+      <SectionBox>
+        <SectionBg alt="후원하기 배경" src={imgSponsorBg} />
+
+        <SectionTitleContainer>
+          <SectionTitle>후원하기</SectionTitle>
+          <SectionInfo>
+            좋아하는 아이돌에게
+            <br />
+            쉽게 조공해 보세요
+          </SectionInfo>
+        </SectionTitleContainer>
+
+        <SectionImg1 alt="목록 페이지 모바일 뷰" src={imgSponsorPhone} />
+      </SectionBox>
+    </Section>
+  );
+};
+
+const MonthlySection = () => {
+  return (
+    <Section>
+      <SectionBox>
+        <SectionBg alt="이달의 아티스트 배경" src={imgMonthlyBg} />
+
+        <SectionTitleContainer>
+          <SectionTitle>이달의 아티스트</SectionTitle>
+          <SectionInfo>
+            내 아티스트에게 1등의
+            <br />
+            영예를 선물하세요
+          </SectionInfo>
+        </SectionTitleContainer>
+
+        <SectionImg1 alt="마이페이지 모바일 뷰" src={imgMonthyPhone} />
+      </SectionBox>
+    </Section>
+  );
+};
+
+const MyArtistSection = () => {
+  return (
+    <Section>
+      <SectionBox>
+        <SectionBg alt="나만의 아티스트 배경" src={imgMyArtistBg} />
+
+        <SectionTitleContainer>
+          <SectionTitle>나만의 아티스트</SectionTitle>
+          <SectionInfo>
+            좋아하는 아티스트들의
+            <br />
+            소식을 모아보세요
+          </SectionInfo>
+        </SectionTitleContainer>
+
+        <SectionImg1 alt="투표 모달창 모바일 뷰" src={imgMyArtistPhone} />
+      </SectionBox>
+    </Section>
+  );
+};
 
 const Container = styled.div`
   background-color: var(--black-02000E);
