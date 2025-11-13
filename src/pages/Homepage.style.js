@@ -1,3 +1,4 @@
+import { media } from "@/styles/media";
 import styled from "styled-components";
 
 export const Container = styled.div`
@@ -7,30 +8,30 @@ export const Container = styled.div`
 `;
 
 export const Section = styled.section`
-  height: 1200px;
+  height: 812px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 
-  @media (max-width: 1079px) {
+  @media ${media.tablet} {
     height: 744px;
   }
 
-  @media (max-width: 576px) {
-    height: 812px;
+  @media ${media.desktop} {
+    height: 1200px;
   }
 `;
 
 export const FirstSection = styled(Section)`
-  height: 1080px;
+  height: 812px;
 
-  @media (max-width: 1079px) {
+  @media ${media.tablet} {
     height: 1200px;
   }
 
-  @media (max-width: 576px) {
-    height: 812px;
+  @media ${media.desktop} {
+    height: 1080px;
   }
 `;
 
@@ -52,29 +53,26 @@ export const FirstSectionBox = styled.div`
 
   & > img {
     position: absolute;
-    inset: 0;
     width: 100%;
     height: 100%;
-    transform: translateY(-5%);
+    inset: 0;
     object-fit: contain;
+    top: 50%;
+    transform: translateY(-50%) scale(121.6%);
+    overflow: hidden;
   }
 
-  @media (max-width: 1079px) {
-    width: 100%;
-    overflow: hidden;
-
+  @media ${media.tablet} {
     & > img {
-      position: absolute;
-      left: 0px;
-      right: 0px;
-      top: 50%;
       transform: translateY(-50%) scale(111.2%);
     }
   }
 
-  @media (max-width: 576px) {
+  @media ${media.desktop} {
     & > img {
-      transform: translateY(-50%) scale(121.6%);
+      top: 0px;
+      transform: translateY(-5%);
+      overflow: visible;
     }
   }
 `;
@@ -92,18 +90,25 @@ export const LogoContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 29px;
+  font-size: 20px;
+  font-weight: 400;
   z-index: 1;
-  margin-top: 140px;
+  gap: 20px;
+  margin-top: 100px;
 
   & span {
     color: var(--orange-F96D69);
   }
 
-  @media (max-width: 1079px) {
+  & > img {
+    width: 236.64px;
+    height: 45.1px;
+  }
+
+  @media ${media.tablet} {
     gap: 32px;
-    font-size: 20px;
     margin-top: 120px;
+    font-weight: 700;
 
     & > img {
       width: 325.34px;
@@ -111,49 +116,49 @@ export const LogoContainer = styled.div`
     }
   }
 
-  @media (max-width: 576px) {
-    gap: 20px;
-    font-weight: 400;
-    margin-top: 100px;
+  @media ${media.desktop} {
+    gap: 29px;
+    margin-top: 140px;
+    font-size: 26px;
 
     & > img {
-      width: 236.64px;
-      height: 45.1px;
+      width: 509px;
+      height: 97px;
     }
   }
 `;
 
 export const StartButton = styled.button`
-  width: 477px;
+  width: 230px;
+  font-weight: 400;
+  margin-bottom: 100px;
   height: 48px;
   background: linear-gradient(to right, #f86f65, #fe5493);
   border-radius: 3px;
   text-align: center;
   line-height: 48px;
-  font-weight: 700;
   font-size: 14px;
-  margin-bottom: 120px;
   z-index: 1;
   color: white;
   cursor: pointer;
 
-  @media (max-width: 576px) {
-    width: 230px;
-    font-weight: 400;
-    margin-bottom: 100px;
+  @media ${media.tablet} {
+    width: 477px;
+    font-weight: 700;
+    margin-bottom: 120px;
   }
 `;
 
 export const SectionBox = styled.div`
+  width: 100%;
   height: 100%;
-  width: 1200px;
   display: flex;
   flex-direction: column;
   align-items: center;
   position: relative;
 
-  @media (max-width: 1079px) {
-    width: 100%;
+  @media ${media.desktop} {
+    width: 1200px;
   }
 `;
 
@@ -172,14 +177,14 @@ export const SectionTitleContainer = styled.div`
   gap: 8px;
   align-items: center;
   z-index: 1;
-  margin-top: 160px;
+  margin-top: 93px;
 
-  @media (max-width: 1079px) {
+  @media ${media.tablet} {
     margin-top: 84px;
   }
 
-  @media (max-width: 576px) {
-    margin-top: 93px;
+  @media ${media.desktop} {
+    margin-top: 160px;
   }
 `;
 
@@ -190,50 +195,50 @@ export const SectionTitle = styled.div`
 `;
 
 export const SectionInfo = styled.div`
-  font-size: 24px;
+  font-size: 20px;
   font-weight: 700;
   text-align: center;
 
-  @media (max-width: 1079px) {
-    font-size: 20px;
+  @media ${media.desktop} {
+    font-size: 24px;
   }
 `;
 
 export const SectionImg1 = styled.img`
-  width: 320px;
-  height: 693.66px;
+  width: 240px;
+  height: 520.25px;
   z-index: 1;
-  margin-top: 60px;
+  margin-top: 47px;
 
-  @media (max-width: 1079px) {
+  @media ${media.tablet} {
     width: 200px;
     height: 433.54px;
-    margin-top: 47px;
   }
 
-  @media (max-width: 576px) {
-    width: 240px;
-    height: 520.25px;
+  @media ${media.desktop} {
+    width: 320px;
+    height: 693.66px;
+    margin-top: 60px;
   }
 `;
 
 export const VerticalLine = styled.div`
-  width: 187px;
-  height: 3091px;
   background: linear-gradient(to bottom, #030615, #051d31, #051e32, #051c30, #030b1c);
   position: absolute;
-  top: 1393px;
   left: 50%;
   transform: translateX(-50%);
+  height: 2133px;
+  top: 1029px;
+  width: 117px;
 
-  @media (max-width: 1079px) {
-    width: 117px;
+  @media ${media.tablet} {
     height: 1928px;
     top: 1394px;
   }
 
-  @media (max-width: 576px) {
-    height: 2133px;
-    top: 1029px;
+  @media ${media.desktop} {
+    top: 1393px;
+    height: 3091px;
+    width: 187px;
   }
 `;

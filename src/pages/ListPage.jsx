@@ -6,8 +6,8 @@ function ListPage() {
   return (
     <>
       <MyCredit />
-      <DonationSection />
-      <VoteSection />
+      {/* <DonationSection />
+      <VoteSection /> */}
     </>
   );
 }
