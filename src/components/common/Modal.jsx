@@ -1,6 +1,6 @@
 import { createPortal } from "react-dom";
 import styled from "styled-components";
-import CloseButtonSvg from "../svg/CloseButtonSvg";
+import CloseButtonSvg from "../../assets/svg/CloseButtonSvg";
 
 const Modal = ({ title, isOpen, onClose, children }) => {
   if (!isOpen) return null;

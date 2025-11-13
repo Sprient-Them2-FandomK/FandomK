@@ -1,10 +1,10 @@
 import styled from "styled-components";
 import { useState } from "react";
 import useCreditContext from "@/app/contexts/CreditContext";
-import CreditSvg from "../svg/CreditSvg";
-import RadioOnSvg from "../svg/RadioOnSvg";
-import RadioOffSvg from "../svg/RadioOffSvg";
-import CreditWhite from "../svg/CreditWhiteSvg";
+import CreditSvg from "../../assets/svg/CreditSvg";
+import RadioOnSvg from "../../assets/svg/RadioOnSvg";
+import RadioOffSvg from "../../assets/svg/RadioOffSvg";
+import CreditWhite from "../../assets/svg/CreditWhiteSvg";
 
 const CREDITS = [100, 500, 1000];
 
