@@ -9,9 +9,6 @@ const DonationModal = ({ onSuccess, isOpen, onClose, content }) => {
   const [isLoading, setIsLoading] = useState(false); // 데이터 요청 로딩 상태
   const [, { isEnoughCredit, subtractCredit }] = useCreditContext();
 
-  // 내용이 없으면 리턴
-  if (!content) return null;
-
   const isNotEnough = !isEnoughCredit(donationCredit);
 
   const handleSetCredit = (e) => {
@@ -52,6 +49,9 @@ const DonationModal = ({ onSuccess, isOpen, onClose, content }) => {
     resetState();
     onClose();
   };
+
+  // 내용이 없으면 리턴
+  if (!content) return null;
 
   return (
     <DonationModalUi

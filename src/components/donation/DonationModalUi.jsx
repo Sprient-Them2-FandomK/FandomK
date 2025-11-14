@@ -12,8 +12,6 @@ const DonationModalUi = ({
   onChangeCredit,
   onSubmit,
 }) => {
-  if (!content) return null;
-
   return (
     <Modal isOpen={isOpen} onClose={onClose} title="후원하기">
       <S.ChildrenWrapper>
