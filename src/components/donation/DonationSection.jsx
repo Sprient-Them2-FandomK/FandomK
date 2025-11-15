@@ -8,7 +8,7 @@ import FundingCard from "./FundingCard";
 
 const DonationSection = () => {
   const [list, setList] = useState([]);
-  const { content, handleContent, isOpen, onClose, onOpen } = useModal();
+  const { isOpen, modalContent, setModalContent, onOpen, onClose } = useModal();
 
   useEffect(() => {
     getDonationList().then((res) => setList(res.list));
@@ -38,7 +38,7 @@ const DonationSection = () => {
           </S.SlideArrow>
           <S.FundingCardWrapper>
             {list.map((item) => (
-              <FundingCard onClick={{ onOpen, handleContent }} item={item} key={item.id} />
+              <FundingCard onClick={{ onOpen, setModalContent }} item={item} key={item.id} />
             ))}
           </S.FundingCardWrapper>
           <S.SlideArrow $direction="right">
@@ -48,7 +48,7 @@ const DonationSection = () => {
       </S.Contaier>
       <DonationModal
         onSuccess={handleDonationSuccess}
-        content={content}
+        content={modalContent}
         isOpen={isOpen}
         onClose={onClose}
       />

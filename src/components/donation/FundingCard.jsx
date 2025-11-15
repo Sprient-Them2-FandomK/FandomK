@@ -21,7 +21,7 @@ const FundingCard = ({ item, onClick }) => {
         <S.DonationButton
           onClick={() => {
             onClick.onOpen();
-            onClick.handleContent(item);
+            onClick.setModalContent(item);
           }}
         >
           후원하기
