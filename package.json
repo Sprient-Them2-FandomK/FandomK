@@ -10,6 +10,8 @@
     "lint:fix": "eslint . --fix",
     "lint:styled": "stylelint ./src/**/*.style.js --fix",
     "lint-front": "lint-staged",
+    "prettier": "prettier . --write",
+    "prettier:check": "prettier . --check",
     "prepare": "husky"
   },
   "lint-staged": {
