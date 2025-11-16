@@ -7,6 +7,7 @@
     "dev": "vite",
     "build": "vite build",
     "lint": "eslint .",
+    "lint:styled": "stylelint ./src/**/*.style.js --fix",
     "lint-front": "lint-staged",
     "prepare": "husky"
   },
