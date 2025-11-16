@@ -209,6 +209,10 @@ export const SectionImg1 = styled.img`
   height: 520.25px;
   z-index: 1;
   margin-top: 47px;
+  animation-name: phoneAni;
+  animation-duration: 1.2s;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-in-out;
 
   @media ${media.tablet} {
     width: 200px;
@@ -219,6 +223,18 @@ export const SectionImg1 = styled.img`
     width: 320px;
     height: 693.66px;
     margin-top: 60px;
+  }
+
+  @keyframes phoneAni {
+    0% {
+      transform: translateY(0px);
+    }
+    50% {
+      transform: translateY(10px);
+    }
+    100% {
+      transform: translateY(0px);
+    }
   }
 `;
 
