@@ -7,7 +7,7 @@ function ListPage() {
     <>
       <MyCredit />
       <DonationSection />
-      {/* <VoteSection /> */}
+      <VoteSection />
     </>
   );
 }
