@@ -26,7 +26,7 @@ export const AddIdolsSection = styled.section`
 export const SectionTitle = styled.h2`
   font-size: 24px;
   font-weight: 700;
-  color: #fff;
+  color: var(--white-FFFFFF);
   margin-bottom: 32px;
 `;
 
@@ -52,7 +52,7 @@ export const EmptyMessage = styled.div`
 export const Divider = styled.div`
   width: 100%;
   height: 1px;
-  background-color: #ffffff;
+  background-color: var(--white-FFFFFF);
 `;
 
 // 아이돌 그리드 컨테이너 (화살표 버튼 포함)
