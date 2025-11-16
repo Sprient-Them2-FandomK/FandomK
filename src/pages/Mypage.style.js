@@ -99,10 +99,10 @@ export const AddButton = styled.button`
   width: 255px;
   height: 48px;
   margin-top: 48px;
-  background: linear-gradient(90deg, #f96d69 0%, #fe5493 100%);
+  background: linear-gradient(90deg, var(--orange-F96D69) 0%, var(--pink-FE5493) 100%);
   border: none;
   border-radius: 24px;
-  color: #fff;
+  color: var(--white-FFFFFF);
   cursor: pointer;
   align-self: center;
   display: flex;
