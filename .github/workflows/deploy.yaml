@@ -17,6 +17,11 @@ jobs:
         with:
           ref: main
           fetch-depth: 0
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22.18.0
+          cache: "npm"
       - name: Install Vercel CLI
         run: npm i -g vercel@latest
       - name: Pull Vercel env (production)

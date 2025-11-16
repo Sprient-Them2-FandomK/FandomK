@@ -3,8 +3,11 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
+  "engines": {
+    "node": "22.18.0"
+  },
   "scripts": {
-    "dev": "vite",
+    "dev": "node check-node-version.cjs && vite",
     "build": "vite build",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
