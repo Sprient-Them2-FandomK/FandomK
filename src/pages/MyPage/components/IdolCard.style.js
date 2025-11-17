@@ -35,13 +35,36 @@ export const ImageWrapper = styled.div`
   border-radius: 50%;
   justify-content: center;
   align-items: center;
-  opacity: ${(props) => (props.$selected ? "0.7" : "1")};
+`;
+
+// 아이돌 이미지 컨테이너 (그라데이션 오버레이용)
+export const ImageContainer = styled.div`
+  position: relative;
+  width: ${(props) => IMAGE_SIZES[props.$size]}px;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  overflow: hidden;
+
+  /* 선택 시 그라데이션 오버레이 */
+  &::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background: linear-gradient(180deg, #f96e68 0%, #fe578f 100%);
+    opacity: ${(props) => (props.$selected ? "0.5" : "0")};
+    pointer-events: none;
+    transition: opacity 0.2s ease;
+  }
 `;
 
 // 아이돌 이미지
 export const IdolImage = styled.img`
-  width: ${(props) => IMAGE_SIZES[props.$size]}px;
-  aspect-ratio: 1;
+  width: 100%;
+  height: 100%;
   border-radius: 50%;
   object-fit: cover;
 `;
@@ -70,12 +93,14 @@ export const DeleteButton = styled.button`
 
 // 체크 아이콘
 export const CheckIcon = styled.div`
-  display: flex;
   position: absolute;
-  top: 0;
-  right: 0;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
   justify-content: center;
   align-items: center;
+  z-index: 10;
 `;
 
 // 텍스트 정보 섹션

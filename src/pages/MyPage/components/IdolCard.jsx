@@ -19,7 +19,9 @@ const IdolCard = ({
     <S.CardContainer onClick={handleClick} $clickable={!!onClick}>
       {/* 이미지 영역 */}
       <S.ImageWrapper $size={size} $selected={selected}>
-        <S.IdolImage $size={size} src={idol.profileImage} alt={idol.name} />
+        <S.ImageContainer $size={size} $selected={selected}>
+          <S.IdolImage src={idol.profileImage} alt={idol.name} />
+        </S.ImageContainer>
 
         {/* 삭제 버튼 */}
         {showDeleteButton && (
@@ -37,12 +39,11 @@ const IdolCard = ({
         {/* 체크 표시 */}
         {selected && (
           <S.CheckIcon>
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-              <circle cx="12" cy="12" r="12" fill="#F96D69" />
+            <svg width="60" height="60" viewBox="0 0 60 60" fill="none">
               <path
-                d="M6 12L10 16L18 8"
+                d="M15 30L25 40L45 20"
                 stroke="white"
-                strokeWidth="2"
+                strokeWidth="4"
                 strokeLinecap="round"
                 strokeLinejoin="round"
               />
