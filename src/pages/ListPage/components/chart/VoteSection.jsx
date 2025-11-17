@@ -1,6 +1,9 @@
 import client from "@/api/client";
+import HighlightButton from "@/components/common/HighlightButton";
 import { creditStorage } from "@/storage/credit.storage";
+import { media } from "@/styles/media";
 import { useEffect, useState } from "react";
+import { css } from "styled-components";
 import CreditLimitModal from "./CreditLimitModal";
 import ListItem from "./ListItem";
 import * as S from "./VoteSection.style";
@@ -87,9 +90,23 @@ const VoteSection = ({ onClose, initialGender = "female" }) => {
           </S.List>
 
           <S.Vote>
-            <S.Votebtn disabled={!selectedId} onClick={submit}>
+            <HighlightButton
+              onClick={submit}
+              disabled={!selectedId}
+              $customStyle={css`
+                width: calc(100% - 32px);
+                height: 44px;
+                margin: 16px 0;
+
+                @media ${media.tablet} {
+                  width: 100%;
+                  height: 42px;
+                  margin: 20px 0 12px;
+                }
+              `}
+            >
               투표하기
-            </S.Votebtn>
+            </HighlightButton>
             <S.VoteNotice>
               투표하는 데 <S.Credit>1000</S.Credit> 크레딧이 소모됩니다.
             </S.VoteNotice>

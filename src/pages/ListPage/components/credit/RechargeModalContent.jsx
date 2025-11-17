@@ -1,5 +1,7 @@
 import useCreditContext from "@/app/contexts/CreditContext";
+import HighlightButton from "@/components/common/HighlightButton";
 import { useState } from "react";
+import { css } from "styled-components";
 import CreditSvg from "../../../../assets/svg/CreditSvg";
 import CreditWhite from "../../../../assets/svg/CreditWhiteSvg";
 import RadioOffSvg from "../../../../assets/svg/RadioOffSvg";
@@ -34,10 +36,21 @@ const RechargeModalContent = ({ onClose }) => {
           </S.Credit>
         ))}
       </S.CreditList>
-      <S.RechargeButton onClick={onRechargeClick}>
+      <HighlightButton
+        $customStyle={css`
+          display: flex;
+          width: 295px;
+          height: 42px;
+          margin-top: 24px;
+
+          align-items: center;
+          justify-content: center;
+        `}
+        onClick={onRechargeClick}
+      >
         <CreditWhite />
         <div>충전하기</div>
-      </S.RechargeButton>
+      </HighlightButton>
     </S.Container>
   );
 };

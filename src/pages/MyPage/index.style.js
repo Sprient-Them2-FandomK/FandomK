@@ -97,32 +97,3 @@ export const IdolsGrid = styled.div`
   gap: 32px 20px; /* 행간 32px, 열간 20px */
   flex: 1;
 `;
-
-// 추가하기 버튼 - 255x48px, radius 24px, 위 마진 48px
-export const AddButton = styled.button`
-  display: flex;
-  width: 255px;
-  height: 48px;
-  margin-top: 48px;
-  border: none;
-
-  color: var(--color-white-100);
-  font-weight: 700;
-  font-size: 16px;
-  background: linear-gradient(90deg, var(--color-primary) 0%, var(--color-secondary) 100%);
-  border-radius: 24px;
-  cursor: pointer;
-  align-self: center;
-  justify-content: center;
-  align-items: center;
-  gap: 8px;
-
-  &:disabled {
-    opacity: 0.5;
-    cursor: not-allowed;
-  }
-
-  &:hover:not(:disabled) {
-    opacity: 0.9;
-  }
-`;

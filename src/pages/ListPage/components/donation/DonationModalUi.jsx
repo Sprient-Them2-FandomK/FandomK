@@ -1,5 +1,7 @@
 import creditImg from "@/assets/imgs/credit.png";
+import HighlightButton from "@/components/common/HighlightButton";
 import Modal from "@/components/common/Modal";
+import { css } from "styled-components";
 import * as S from "./DonationModalUi.style";
 
 const DonationModalUi = ({
@@ -39,9 +41,17 @@ const DonationModalUi = ({
               <S.MessageBox $color="var(--gray-67666E)">후원 요청 중입니다...</S.MessageBox>
             )}
           </div>
-          <S.SubmitButton disabled={isNotEnough || isLoading} type="submit">
+          <HighlightButton
+            $customStyle={css`
+              width: 295px;
+              height: 42px;
+              font-size: 1.4rem;
+            `}
+            disabled={isNotEnough || isLoading}
+            type="submit"
+          >
             후원하기
-          </S.SubmitButton>
+          </HighlightButton>
         </S.FormContainer>
       </S.ChildrenWrapper>
     </Modal>

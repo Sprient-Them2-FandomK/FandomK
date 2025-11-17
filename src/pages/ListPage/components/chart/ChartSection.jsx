@@ -1,5 +1,7 @@
 import client from "@/api/client";
+import HighlightButton from "@/components/common/HighlightButton";
 import { useEffect, useState } from "react";
+import { css } from "styled-components";
 import * as S from "./ChartSection.styles";
 import ListItem from "./ListItem";
 import VoteSection from "./VoteSection";
@@ -98,10 +100,21 @@ const ChartSection = () => {
       <S.ChartHeader>
         <S.H2>이달의 차트</S.H2>
         <S.RightArea>
-          <S.VoteCta type="button" onClick={() => setIsVoteOpen(true)}>
+          <HighlightButton
+            type="button"
+            onClick={() => setIsVoteOpen(true)}
+            $customStyle={css`
+              display: flex;
+              width: 128px;
+              height: 32px;
+              justify-content: center;
+              align-items: center;
+              white-space: nowrap;
+            `}
+          >
             <S.ChartImg />
             <S.ChartVote>차트 투표하기</S.ChartVote>
-          </S.VoteCta>
+          </HighlightButton>
         </S.RightArea>
       </S.ChartHeader>
 

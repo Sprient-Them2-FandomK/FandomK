@@ -28,19 +28,3 @@ export const Credit = styled.div`
     flex: 1;
   }
 `;
-
-export const RechargeButton = styled.button`
-  display: flex;
-  width: 295px;
-  height: 42px;
-  margin-top: 24px;
-
-  color: var(--color-white-100);
-  font-weight: 700;
-  font-size: 14px;
-  background: linear-gradient(to right, var(--color-primary), var(--color-secondary));
-  border-radius: 3px;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-`;

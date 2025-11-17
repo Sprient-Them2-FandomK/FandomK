@@ -1,8 +1,10 @@
 import { getIdolList } from "@/api/idolsClient";
 import MypageAdd from "@/assets/svg/MypageAddSvg";
 import MypageArrow from "@/assets/svg/MypageArrowSvg";
+import HighlightButton from "@/components/common/HighlightButton";
 import { idolsStorage } from "@/storage/idols.storage";
 import { useEffect, useState } from "react";
+import { css } from "styled-components";
 import IdolCard from "./components/IdolCard";
 import * as S from "./index.style";
 
@@ -186,12 +188,28 @@ const MyPage = () => {
               <MypageArrow />
             </S.ArrowButton>
           </S.IdolsGridContainer>
+          <HighlightButton
+            onClick={handleAddIdols}
+            $customStyle={css`
+              display: flex;
+              width: 255px;
+              height: 48px;
+              margin-top: 48px;
 
-          {/* 추가하기 버튼 */}
-          <S.AddButton onClick={handleAddIdols} disabled={selectedIds.length === 0}>
+              font-size: 1.6rem;
+              border-radius: 24px;
+              cursor: pointer;
+              align-self: center;
+              justify-content: center;
+              align-items: center;
+              gap: 8px;
+            `}
+            disabled={selectedIds.length === 0}
+            type="submit"
+          >
             <MypageAdd />
             <span>추가하기</span>
-          </S.AddButton>
+          </HighlightButton>
         </S.AddIdolsSection>
       </S.MypageContainer>
     </>

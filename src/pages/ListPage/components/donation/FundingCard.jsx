@@ -1,6 +1,9 @@
 import creditImg from "@/assets/imgs/credit.png";
+import HighlightButton from "@/components/common/HighlightButton";
+import { media } from "@/styles/media";
 import { getRemainingDays } from "@/utils/date";
 import { Bar, BarChart, ResponsiveContainer, Tooltip, XAxis, YAxis } from "recharts";
+import { css } from "styled-components";
 import * as S from "./FundingCard.style";
 
 const CustomizedTooltip = ({ targetDonation, receivedDonations }) => {
@@ -18,14 +21,30 @@ const FundingCard = ({ item, onClick }) => {
     <S.FundingCard>
       <S.ImgWrapper>
         <img src={item.idol.profilePicture} alt={item.idol.name} />
-        <S.DonationButton
+        <HighlightButton
+          $customStyle={css`
+            position: absolute;
+            bottom: 8px;
+            left: 8px;
+            z-index: 1;
+            width: 142px;
+            height: 32px;
+            font-size: 1.3rem;
+
+            @media ${media.tablet} {
+              bottom: 20px;
+              left: 24px;
+              width: 234px;
+              height: 40px;
+            }
+          `}
           onClick={() => {
             onClick.onOpen();
             onClick.setModalContent(item);
           }}
         >
           후원하기
-        </S.DonationButton>
+        </HighlightButton>
       </S.ImgWrapper>
       <S.TitleWrapper>
         <S.SubTitle>{item.subtitle}</S.SubTitle>

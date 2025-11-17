@@ -7,7 +7,10 @@ import imgSponsorBg from "@/assets/imgs/home_sponsor_bg.png";
 import imgSponsorPhone from "@/assets/imgs/home_sponsor_phone.png";
 import imgStartBg from "@/assets/imgs/home_start_bg.png";
 import imgLogo from "@/assets/imgs/logo.svg";
+import HighlightButton from "@/components/common/HighlightButton";
+import { media } from "@/styles/media";
 import { useNavigate } from "react-router-dom";
+import { css } from "styled-components";
 import * as S from "./index.style";
 
 function Homepage() {
@@ -53,14 +56,30 @@ const StartSection = ({ onClick }) => {
           />
         </S.LogoContainer>
         <img src={imgStartBg} alt="지금 시작하기" />
-        <S.StartButton
+        <HighlightButton
+          $customStyle={css`
+            z-index: 1;
+            width: 230px;
+            height: 48px;
+            margin-bottom: 100px;
+
+            font-weight: 400;
+            line-height: 4.8rem;
+
+            @media ${media.tablet} {
+              width: 477px;
+              margin-bottom: 120px;
+
+              font-weight: 700;
+            }
+          `}
           onClick={() => {
             onClick.goListPage();
             onClick.resetCredit();
           }}
         >
           지금 시작하기
-        </S.StartButton>
+        </HighlightButton>
       </S.FirstSectionBox>
     </S.FirstSection>
   );

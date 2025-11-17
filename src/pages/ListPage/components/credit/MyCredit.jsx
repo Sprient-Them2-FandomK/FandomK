@@ -19,10 +19,8 @@ const MyCredit = () => {
             <div>{credit.toLocaleString()}</div>
           </S.CreditPoint>
         </S.CreditContainer>
-
         <S.RechargeButton onClick={() => setShowRechargeModal(true)}>충전하기</S.RechargeButton>
       </S.Container>
-
       <Modal
         title="크레딧 충전하기"
         isOpen={showRechargeModal}
