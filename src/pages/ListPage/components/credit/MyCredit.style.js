@@ -1,4 +1,5 @@
 import { media } from "@/styles/media";
+import { hexToRgba } from "@/utils/color";
 import styled from "styled-components";
 
 export const Container = styled.div`
@@ -7,7 +8,7 @@ export const Container = styled.div`
   height: 131px;
   margin: 16px 24px 40px;
   padding: 0 20px;
-  border: 1px solid #f1eef9cc;
+  border: 1px solid ${hexToRgba("#f1eef9cc")};
   border-radius: 8px;
   justify-content: space-between;
   align-items: center;
@@ -31,7 +32,7 @@ export const CreditContainer = styled.div`
 `;
 
 export const CreditTitle = styled.div`
-  color: #fff9;
+  color: ${hexToRgba("#fff9")};
   font-weight: 400;
   font-size: 12px;
 

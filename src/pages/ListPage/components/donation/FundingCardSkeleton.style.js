@@ -1,4 +1,5 @@
 import { media } from "@/styles/media";
+import { hexToRgba } from "@/utils/color";
 import styled, { keyframes } from "styled-components";
 
 const shimmer = keyframes`
@@ -11,7 +12,12 @@ const shimmer = keyframes`
 `;
 
 const SkeletonBase = styled.div`
-  background: linear-gradient(90deg, #2a2a2a 0, #3a3a3a 40px, #2a2a2a 80px);
+  background: linear-gradient(
+    90deg,
+    ${hexToRgba("#2a2a2a")} 0,
+    ${hexToRgba("#3a3a3a")} 40px,
+    ${hexToRgba("#2a2a2a")} 80px
+  );
   background-size: 200px 100%;
 
   animation: ${shimmer} 1.4s ease-in-out infinite;

@@ -1,5 +1,6 @@
 import closePng from "@/assets/btn_delete_24px.png";
 import credit_icon from "@/assets/credit_113px.png";
+import { hexToRgba } from "@/utils/color";
 import styled from "styled-components";
 
 export const Overlay = styled.div`
@@ -7,7 +8,7 @@ export const Overlay = styled.div`
   position: fixed;
   z-index: 999;
   inset: 0;
-  background: rgb(0 0 0 / 60%);
+  background: ${hexToRgba("#323232")};
   justify-content: center;
   align-items: center;
 `;
@@ -17,7 +18,7 @@ export const ModalBox = styled.div`
   position: relative;
   width: 339px;
   height: 330px;
-  background: rgb(24 29 38 / 100%);
+  background: ${hexToRgba("#181D26FF")};
   border-radius: 12px;
   flex-direction: column;
   align-items: center;
@@ -36,29 +37,14 @@ export const Icon = styled.div`
 export const Message = styled.p`
   margin-top: 31px;
 
-  color: #fff;
+  color: var(--color-white-100);
   font-size: 16px;
   line-height: 1.5;
 
   span {
-    color: #f77;
+    color: ${hexToRgba("#f77")};
     font-weight: 600;
   }
-`;
-
-export const ConfirmButton = styled.button`
-  width: 295px;
-  height: 42px;
-  margin-top: 31px;
-  border: none;
-
-  color: #fff;
-  font-weight: 600;
-  font-size: 15px;
-  border-radius: 3px;
-  cursor: pointer;
-
-  background: linear-gradient(90deg, #f86f65 0%, #fe5493 100%);
 `;
 
 export const CloseBtn = styled.button`

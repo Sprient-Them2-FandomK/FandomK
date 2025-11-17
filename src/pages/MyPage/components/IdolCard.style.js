@@ -1,3 +1,4 @@
+import { hexToRgba } from "@/utils/color";
 import styled from "styled-components";
 
 // 이미지 사이즈 상수
@@ -30,7 +31,8 @@ export const ImageWrapper = styled.div`
   display: flex;
   position: relative;
   width: ${(props) => WRAPPER_SIZES[props.$size]}px;
-  border: 1.31px solid ${(props) => (props.$selected ? "#F96D69" : "#f96868")};
+  border: 1px solid
+    ${(props) => (props.$selected ? "var(--color-primary)" : `${hexToRgba("#f96868")}`)};
   aspect-ratio: 1;
   border-radius: 50%;
   justify-content: center;
@@ -54,7 +56,7 @@ export const ImageContainer = styled.div`
     width: 100%;
     height: 100%;
     border-radius: 50%;
-    background: linear-gradient(180deg, #f96e68 0%, #fe578f 100%);
+    background: linear-gradient(180deg, var(--color-primary) 0%, ${hexToRgba("#fe578f")} 100%);
     opacity: ${(props) => (props.$selected ? "0.5" : "0")};
     pointer-events: none;
     transition: opacity 0.2s ease;
@@ -78,9 +80,9 @@ export const DeleteButton = styled.button`
   width: 31px;
   height: 31px;
   padding: 0;
-  border: 2.8px solid #02000e;
+  border: 3px solid ${hexToRgba("#02000e")};
 
-  background-color: #fff;
+  background-color: var(--color-white-100);
   border-radius: 50%;
   justify-content: center;
   align-items: center;
@@ -113,7 +115,7 @@ export const InfoSection = styled.div`
 
 // 멤버 이름
 export const MemberName = styled.div`
-  color: #fff;
+  color: var(--color-white-100);
   font-weight: 700;
   font-size: 16px;
 `;
@@ -122,7 +124,7 @@ export const MemberName = styled.div`
 export const GroupName = styled.div`
   padding: 0 12px;
 
-  color: rgb(255 255 255 / 60%);
+  color: ${hexToRgba("#FFFFFF99")};
   font-weight: 400;
   font-size: 14px;
 `;

@@ -82,7 +82,7 @@ export const HeadTab = styled.button`
     color 0.2s ease;
 
   &:focus-visible {
-    outline: 2px solid #3b82f6;
+    outline: 2px solid ${hexToRgba("#3b82f6")};
     outline-offset: 0;
   }
 `;
@@ -124,8 +124,8 @@ export const MoreArea = styled.div`
 export const MoreBtn = styled.button`
   width: 100%;
   height: 46px;
-  background: #222734;
-  color: #fff;
+  background: ${hexToRgba("#222734")};
+  color: ${hexToRgba("#fff")};
   border: 1px solid rgb(241 238 249 / 80%);
   border-radius: 3px;
   cursor: pointer;

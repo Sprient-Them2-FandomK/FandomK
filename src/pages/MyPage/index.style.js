@@ -1,4 +1,5 @@
 import { media } from "@/styles/media";
+import { hexToRgba } from "@/utils/color";
 import styled from "styled-components";
 
 // 전체 컨테이너 - max-width 1200px, flex column, gap 40px
@@ -73,7 +74,7 @@ export const EmptyMessage = styled.div`
   width: 100%;
   padding: 40px 0;
 
-  color: rgb(255 255 255 / 60%);
+  color: ${hexToRgba("#FFFFFF99")};
   font-size: 16px;
   text-align: center;
 `;
@@ -111,7 +112,7 @@ export const ArrowButton = styled.button`
   height: 135px;
   border: none;
 
-  background-color: rgb(27 27 27 / 80%);
+  background-color: ${hexToRgba("#1B1B1BCC")};
   border-radius: 8px;
   justify-content: center;
   align-items: center;

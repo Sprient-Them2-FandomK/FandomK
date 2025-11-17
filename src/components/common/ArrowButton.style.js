@@ -1,4 +1,5 @@
 import { media } from "@/styles/media";
+import { hexToRgba } from "@/utils/color";
 import styled, { css } from "styled-components";
 
 const sizes = {
@@ -16,7 +17,7 @@ export const ArrowButtonWrapper = styled.button`
   display: none;
   cursor: pointer;
   border-radius: 8px;
-  background-color: #1b1b1bcc;
+  background-color: ${hexToRgba("#1b1b1bcc")};
 
   ${({ $isLeft }) =>
     $isLeft ? { left: "-80px" } : { right: "-80px", transform: "rotate(180deg)" }}
@@ -24,7 +25,7 @@ export const ArrowButtonWrapper = styled.button`
   ${({ $size }) => sizes[$size] || sizes.md}
 
   &:disabled {
-    background: #080611;
+    background: ${hexToRgba("#080611")};
   }
 
   @media ${media.tablet} {

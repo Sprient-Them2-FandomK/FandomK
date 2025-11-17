@@ -1,3 +1,4 @@
+import { hexToRgba } from "@/utils/color";
 import styled from "styled-components";
 
 export const ChildrenWrapper = styled.div`
@@ -24,7 +25,7 @@ export const TitleWrapper = styled.div`
 `;
 
 export const SubTitle = styled.h4`
-  color: #666;
+  color: ${hexToRgba("#666")};
   font-weight: 400;
   font-size: 1.2rem;
   line-height: 1.8rem;
@@ -68,7 +69,7 @@ export const InputWrapper = styled.div`
     height: 24px;
   }
 
-  ${({ $isNotEnough }) => $isNotEnough && { borderColor: "#FF3B3B" }}
+  ${({ $isNotEnough }) => $isNotEnough && { borderColor: hexToRgba("#FF3B3B") }}
 `;
 
 export const MessageBox = styled.div`
@@ -76,22 +77,7 @@ export const MessageBox = styled.div`
 
   font-weight: 500;
   font-size: 1.2rem;
-  color: #ff2626;
+  color: ${hexToRgba("#ff2626")};
 
   ${({ $color }) => $color && { color: $color }}
-`;
-
-export const SubmitButton = styled.button`
-  width: 295px;
-  height: 42px;
-
-  font-weight: 700;
-  font-size: 1.4rem;
-  line-height: 2.6rem;
-  border-radius: 4px;
-  background: linear-gradient(to right, #f86f65, var(--color-primary));
-
-  &:disabled {
-    background: var(--color-gray-500);
-  }
 `;

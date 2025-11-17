@@ -1,4 +1,5 @@
 import { media } from "@/styles/media";
+import { hexToRgba } from "@/utils/color";
 import styled from "styled-components";
 
 export const FundingCard = styled.div`
@@ -16,7 +17,11 @@ export const ImgWrapper = styled.div`
     content: "";
     position: absolute;
     inset: 0;
-    background: linear-gradient(to bottom, rgb(0 0 0 / 0%) 85%, rgb(0 0 0 / 100%) 100%);
+    background: linear-gradient(
+      to bottom,
+      ${hexToRgba("#00000000")} 85%,
+      ${hexToRgba("#000000FF")} 100%
+    );
     pointer-events: none; /* 버튼 클릭 방해 안 하도록 */
   }
 
@@ -36,28 +41,6 @@ export const ImgWrapper = styled.div`
   }
 `;
 
-export const DonationButton = styled.button`
-  position: absolute;
-  bottom: 8px;
-  left: 8px;
-  z-index: 1;
-  width: 142px;
-  height: 32px;
-
-  font-weight: 700;
-  font-size: 1.3rem;
-  line-height: 2.6rem;
-  border-radius: 4px;
-  background: linear-gradient(to right, #f86f65, var(--color-secondary));
-
-  @media ${media.tablet} {
-    bottom: 20px;
-    left: 24px;
-    width: 234px;
-    height: 40px;
-  }
-`;
-
 export const TitleWrapper = styled.div`
   display: flex;
   flex-direction: column;
@@ -71,7 +54,7 @@ export const TitleWrapper = styled.div`
 `;
 
 export const SubTitle = styled.h4`
-  color: #666;
+  color: ${hexToRgba("#666")};
   font-weight: 400;
   font-size: 1.2rem;
   line-height: 1.8rem;

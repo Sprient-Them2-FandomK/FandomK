@@ -1,5 +1,6 @@
 import closePng from "@/assets/btn_delete_24px.png";
 import backPng from "@/assets/icj_arrow_left2.png";
+import { hexToRgba } from "@/utils/color";
 import styled from "styled-components";
 
 export const Container = styled.div`
@@ -7,11 +8,11 @@ export const Container = styled.div`
   position: fixed;
   z-index: 999;
   inset: 0;
-  background: rgb(0 0 0 / 70%);
+  background: ${hexToRgba("#000000B2")};
   place-items: center;
 
   @media (width <= 524px) {
-    background: rgb(2 0 14 / 100%);
+    background: ${hexToRgba("#000000B2")};
     display: block;
   }
 `;
@@ -26,7 +27,7 @@ export const Modal = styled.div`
 
   color: var(--color-white-100);
   max-width: 524px;
-  background: #181d26;
+  background: var(--color-bg-base);
   flex-direction: column;
   border-radius: 16px;
 
@@ -155,33 +156,8 @@ export const TransparentOverlay = styled.div`
     left: 0;
     z-index: 9;
     height: 106px;
-    background: rgb(2 0 14 / 80%);
+    background: ${hexToRgba("#000000B2")};
     pointer-events: none;
-  }
-`;
-
-export const Votebtn = styled.button`
-  width: 100%;
-  height: 42px;
-  margin: 20px 0 12px;
-  border: 0;
-
-  color: #fff;
-  font-size: 14px;
-  cursor: pointer;
-  background: linear-gradient(90deg, rgb(248 111 101 / 100%) 0%, rgb(254 84 147 / 100%) 100%);
-  border-radius: 10px;
-  opacity: ${({ disabled }) => (disabled ? 0.5 : 1)};
-
-  @media (width <= 524px) {
-    display: block;
-    width: calc(100% - 32px);
-    height: 44px;
-    margin: 16px auto;
-    margin: 16px 0;
-
-    font-size: 15px;
-    pointer-events: auto;
   }
 `;
 
@@ -192,5 +168,5 @@ export const VoteNotice = styled.p`
 `;
 
 export const Credit = styled.span`
-  color: rgb(249 109 105 / 100%);
+  color: var(--color-primary);
 `;

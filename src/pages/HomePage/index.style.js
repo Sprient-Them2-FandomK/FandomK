@@ -1,4 +1,5 @@
 import { media } from "@/styles/media";
+import { hexToRgba } from "@/utils/color";
 import styled from "styled-components";
 
 export const Container = styled.div`
@@ -35,7 +36,7 @@ export const FirstSection = styled(Section)`
 `;
 
 export const FirstSectionTitle = styled.h2`
-  color: #ffffffde;
+  color: ${hexToRgba("#ffffffde")};
   font-weight: 700;
   font-size: 2.6rem;
   line-height: 3.1rem;
@@ -130,29 +131,6 @@ export const LogoContainer = styled.div`
       width: 509px;
       height: 97px;
     }
-  }
-`;
-
-export const StartButton = styled.button`
-  z-index: 1;
-  width: 230px;
-  height: 48px;
-  margin-bottom: 100px;
-
-  color: white;
-  font-weight: 400;
-  font-size: 14px;
-  line-height: 48px;
-  text-align: center;
-  background: linear-gradient(to right, #f86f65, #fe5493);
-  border-radius: 3px;
-  cursor: pointer;
-
-  @media ${media.tablet} {
-    width: 477px;
-    margin-bottom: 120px;
-
-    font-weight: 700;
   }
 `;
 
@@ -254,7 +232,14 @@ export const VerticalLine = styled.div`
   left: 50%;
   width: 117px;
   height: 2133px;
-  background: linear-gradient(to bottom, #030615, #051d31, #051e32, #051c30, #030b1c);
+  background: linear-gradient(
+    to bottom,
+    ${hexToRgba("#030615")},
+    ${hexToRgba("#051d31")},
+    ${hexToRgba("#051e32")},
+    ${hexToRgba("#051c30")},
+    ${hexToRgba("#030b1c")}
+  );
   transform: translateX(-50%);
 
   @media ${media.tablet} {
