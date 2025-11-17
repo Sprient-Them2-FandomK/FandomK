@@ -1,4 +1,4 @@
-import ArrowSvg from "@/assets/svg/ArrowSvg";
+import ArrowButton from "@/components/common/ArrowButton";
 import useDraggableSlider from "@/hooks/useDraggableSlider";
 import useIntersectionObserver from "@/hooks/useIntersectionObserver";
 import * as S from "./DonationSlider.style";
@@ -20,14 +20,7 @@ const DonationSlider = ({ list, onClick, handleReachEnd, cursor }) => {
 
   return (
     <S.SlideWrapper>
-      <S.SlideArrow
-        disabled={!drag.hasPrev}
-        onClick={drag.handlePrev}
-        aria-label="이전 조공 보기"
-        $direction="left"
-      >
-        <ArrowSvg />
-      </S.SlideArrow>
+      <ArrowButton disabled={!drag.hasPrev} onClick={drag.handlePrev} aria-label="이전 조공 보기" />
       <S.FundingCardWrapper
         ref={drag.viewportRef}
         onMouseDown={drag.handleMouseDown}
@@ -46,14 +39,12 @@ const DonationSlider = ({ list, onClick, handleReachEnd, cursor }) => {
           )}
         </S.SlideTrack>
       </S.FundingCardWrapper>
-      <S.SlideArrow
+      <ArrowButton
         disabled={!drag.hasNext}
         onClick={drag.handleNext}
         aria-label="다음 조공 보기"
         $direction="right"
-      >
-        <ArrowSvg />
-      </S.SlideArrow>
+      />
     </S.SlideWrapper>
   );
 };
