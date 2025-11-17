@@ -1,10 +1,11 @@
 import client from "@/api/client";
 import HighlightButton from "@/components/common/HighlightButton";
+import useModal from "@/hooks/useModal";
 import { useEffect, useState } from "react";
 import { css } from "styled-components";
 import * as S from "./ChartSection.styles";
 import ListItem from "./ListItem";
-import VoteSection from "./VoteSection";
+import VoteModal from "./VoteModal";
 
 const BREAKPOINT = 744;
 
@@ -12,7 +13,7 @@ const ChartSection = () => {
   const getInitWidth = () => (typeof window !== "undefined" ? window.innerWidth : BREAKPOINT);
 
   const [gender, setGender] = useState("female");
-  const [isVoteOpen, setIsVoteOpen] = useState(false);
+  const { isOpen, onOpen, onClose } = useModal();
 
   const [windowWidth, setWindowWidth] = useState(getInitWidth());
   const [visibleCount, setVisibleCount] = useState(getInitWidth() >= BREAKPOINT ? 10 : 5);
@@ -102,7 +103,7 @@ const ChartSection = () => {
         <S.RightArea>
           <HighlightButton
             type="button"
-            onClick={() => setIsVoteOpen(true)}
+            onClick={onOpen}
             $customStyle={css`
               display: flex;
               width: 128px;
@@ -147,7 +148,7 @@ const ChartSection = () => {
         </S.MoreBtn>
       </S.MoreArea>
 
-      {isVoteOpen && <VoteSection onClose={() => setIsVoteOpen(false)} initialGender={gender} />}
+      {isOpen && <VoteModal onClose={onClose} initialGender={gender} />}
     </S.Wrap>
   );
 };

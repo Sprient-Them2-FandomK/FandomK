@@ -6,9 +6,9 @@ import { useEffect, useState } from "react";
 import { css } from "styled-components";
 import CreditLimitModal from "./CreditLimitModal";
 import ListItem from "./ListItem";
-import * as S from "./VoteSection.style";
+import * as S from "./VoteModal.style";
 
-const VoteSection = ({ onClose, initialGender = "female" }) => {
+const VoteModal = ({ onClose, initialGender = "female" }) => {
   const [gender] = useState(initialGender);
   const [list, setList] = useState([]);
   const [selectedId, setSelectedId] = useState(null);
@@ -64,8 +64,8 @@ const VoteSection = ({ onClose, initialGender = "female" }) => {
 
   return (
     <>
-      <S.Container>
-        <S.Modal>
+      <S.Container onClick={onClose}>
+        <S.Modal onClick={(e) => e.stopPropagation()}>
           <S.MobileHeader>
             <S.BackBtn onClick={onClose} aria-label="뒤로" />
             <S.Title>{gender === "female" ? "이달의 여자 아이돌" : "이달의 남자 아이돌"}</S.Title>
@@ -119,4 +119,4 @@ const VoteSection = ({ onClose, initialGender = "female" }) => {
   );
 };
 
-export default VoteSection;
+export default VoteModal;
