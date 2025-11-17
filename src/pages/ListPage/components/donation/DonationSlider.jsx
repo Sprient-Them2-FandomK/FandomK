@@ -20,7 +20,12 @@ const DonationSlider = ({ list, onClick, handleReachEnd, cursor }) => {
 
   return (
     <S.SlideWrapper>
-      <ArrowButton disabled={!drag.hasPrev} onClick={drag.handlePrev} aria-label="이전 조공 보기" />
+      <ArrowButton
+        disabled={!drag.hasPrev}
+        onClick={drag.handlePrev}
+        aria-label="이전 조공 보기"
+        $isTablet={false}
+      />
       <S.FundingCardWrapper
         ref={drag.viewportRef}
         onMouseDown={drag.handleMouseDown}
@@ -43,7 +48,8 @@ const DonationSlider = ({ list, onClick, handleReachEnd, cursor }) => {
         disabled={!drag.hasNext}
         onClick={drag.handleNext}
         aria-label="다음 조공 보기"
-        $direction="right"
+        $isTablet={false}
+        $isLeft={false}
       />
     </S.SlideWrapper>
   );

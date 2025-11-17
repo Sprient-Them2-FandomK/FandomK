@@ -88,6 +88,7 @@ export const Divider = styled.div`
 
 // 아이돌 그리드 컨테이너 (화살표 버튼 포함)
 export const IdolsGridContainer = styled.div`
+  position: relative;
   display: flex;
   align-items: center;
   gap: 0; /* 모바일: 화살표 없음 */
@@ -96,12 +97,10 @@ export const IdolsGridContainer = styled.div`
 
   @media ${media.tablet} {
     gap: 24px;
-    overflow: visible;
   }
 
   @media ${media.desktop} {
     gap: 32px;
-    overflow: visible;
   }
 `;
 
@@ -136,7 +135,6 @@ export const IdolsGrid = styled.div`
   display: grid;
   gap: 32px 20px;
   flex: 1;
-  will-change: ${(props) => (props.$isMobile ? "transform" : "auto")};
 
   /* 모바일: 2행 고정, 열은 자동으로 늘어남 */
   grid-template-rows: ${(props) => (props.$isMobile ? "repeat(2, 1fr)" : "none")};
@@ -155,10 +153,26 @@ export const IdolsGrid = styled.div`
 
   @media ${media.desktop} {
     grid-template-rows: none;
-    grid-template-columns: repeat(8, 1fr); /* 데스크톱: 8*2 */
+    grid-template-columns: repeat(7, 1fr); /* 데스크톱: 8*2 */
     grid-auto-flow: row;
     grid-auto-columns: auto;
     gap: 32px 20px;
     will-change: auto;
+  }
+`;
+
+export const Wrapper = styled.div`
+  display: flex;
+  position: relative;
+  align-items: center;
+
+  @media ${media.desktop} {
+    gap: 12px;
+    width: 1200px;
+    padding: 0 12px;
+  }
+
+  @media ${media.desktopSlider} {
+    gap: 40px;
   }
 `;

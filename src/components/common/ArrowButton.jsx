@@ -1,13 +1,22 @@
 import ArrowSvg from "@/assets/svg/ArrowSvg";
 import * as S from "./ArrowButton.style";
-const ArrowButton = ({ onClick, label, disabled, $customStyle, $direction = "left" }) => {
+
+const ArrowButton = ({
+  onClick,
+  label,
+  disabled,
+  $size = "md",
+  $isLeft = true,
+  $isTablet = true,
+}) => {
   return (
     <S.ArrowButtonWrapper
-      $customStyle={$customStyle}
+      $size={$size}
+      $isTablet={$isTablet}
       disabled={disabled}
       onClick={onClick}
       aria-label={label}
-      $direction={$direction}
+      $isLeft={$isLeft}
     >
       <ArrowSvg />
     </S.ArrowButtonWrapper>

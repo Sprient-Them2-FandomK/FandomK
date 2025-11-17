@@ -1,16 +1,14 @@
 import { getIdolList } from "@/api/idolsClient";
 import { getRecommendations } from "@/api/recommendationClient";
 import MypageAdd from "@/assets/svg/MypageAddSvg";
-import MypageArrow from "@/assets/svg/MypageArrowSvg";
-import useDraggableSlider from "@/hooks/useDraggableSlider";
+import ArrowButton from "@/components/common/ArrowButton";
 import HighlightButton from "@/components/common/HighlightButton";
+import useDraggableSlider from "@/hooks/useDraggableSlider";
 import { idolsStorage } from "@/storage/idols.storage";
 import { useEffect, useState } from "react";
 import { css } from "styled-components";
 import IdolCard from "./components/IdolCard";
 import * as S from "./index.style";
-
-const IDOLS_PER_PAGE = 16; // 8열 2행
 
 const MyPage = () => {
   // 초기 화면 크기 감지 함수
@@ -44,8 +42,8 @@ const MyPage = () => {
       const isDesktop = window.matchMedia("(min-width: 1200px)").matches;
 
       if (isDesktop) {
-        setIdolsPerPage(16); // 8*2
-        setRecommendCount(8); // 첫 행만
+        setIdolsPerPage(14); // 8*2
+        setRecommendCount(7); // 첫 행만
         setIsMobile(false);
       } else if (isTablet) {
         setIdolsPerPage(8); // 4*2
@@ -253,49 +251,42 @@ const MyPage = () => {
         {/* 관심 있는 아이돌 추가 섹션 */}
         <S.AddIdolsSection>
           <S.SectionTitle>관심 있는 아이돌들을 추가해보세요.</S.SectionTitle>
-          <S.IdolsGridContainer
-            ref={isMobile ? drag.viewportRef : null}
-            onMouseDown={isMobile ? drag.handleMouseDown : undefined}
-            onTouchStart={isMobile ? drag.handleTouchStart : undefined}
-            onTouchMove={isMobile ? drag.handleTouchMove : undefined}
-            onTouchEnd={isMobile ? drag.handleTouchEnd : undefined}
-          >
-            {/* 좌측 화살표 버튼 - 모바일에서 숨김 */}
-            {!isMobile && (
-              <S.ArrowButton onClick={handlePrevPage} disabled={currentPage === 0}>
-                <MypageArrow />
-              </S.ArrowButton>
-            )}
+          {/* 좌측 화살표 버튼 - 모바일에서 숨김 */}
+          <S.Wrapper>
+            <ArrowButton $size="lg" onClick={handlePrevPage} disabled={currentPage === 0} />
 
-            {/* 아이돌 그리드 */}
-            <S.IdolsGrid ref={isMobile ? drag.listRef : null} $isMobile={isMobile}>
-              {currentPageIdols.map((idol) => (
-                <IdolCard
-                  key={idol.id}
-                  idol={{
-                    id: idol.id,
-                    name: idol.name,
-                    group: idol.group,
-                    profileImage: idol.profilePicture,
-                  }}
-                  size="large"
-                  selected={selectedIds.includes(idol.id)}
-                  onClick={() => handleSelectIdol(idol.id)}
-                />
-              ))}
-            </S.IdolsGrid>
-
-            {/* 우측 화살표 버튼 - 모바일에서 숨김 */}
-            {!isMobile && (
-              <S.ArrowButton
-                onClick={handleNextPage}
-                disabled={currentPage === totalPages - 1}
-                $isRight
-              >
-                <MypageArrow />
-              </S.ArrowButton>
-            )}
-          </S.IdolsGridContainer>
+            <S.IdolsGridContainer
+              ref={drag.viewportRef}
+              onMouseDown={drag.handleMouseDown}
+              onTouchStart={drag.handleTouchStart}
+              onTouchMove={drag.handleTouchMove}
+              onTouchEnd={drag.handleTouchEnd}
+            >
+              {/* 아이돌 그리드 */}
+              <S.IdolsGrid ref={drag.listRef} $isMobile={isMobile}>
+                {currentPageIdols.map((idol) => (
+                  <IdolCard
+                    key={idol.id}
+                    idol={{
+                      id: idol.id,
+                      name: idol.name,
+                      group: idol.group,
+                      profileImage: idol.profilePicture,
+                    }}
+                    size="large"
+                    selected={selectedIds.includes(idol.id)}
+                    onClick={() => handleSelectIdol(idol.id)}
+                  />
+                ))}
+              </S.IdolsGrid>
+            </S.IdolsGridContainer>
+            <ArrowButton
+              $size="lg"
+              $isLeft={false}
+              onClick={handleNextPage}
+              disabled={currentPage === totalPages - 1}
+            />
+          </S.Wrapper>
           <HighlightButton
             onClick={handleAddIdols}
             $customStyle={css`
