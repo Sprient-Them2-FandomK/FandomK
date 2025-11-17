@@ -18,7 +18,7 @@ const Header = () => {
           src={LogoImg}
           alt="로고"
           onClick={() => {
-            window.location.reload();
+            navigate("/list");
           }}
         />
         <S.HeaderProfile src={ProfileImg} alt="프로필" onClick={() => navigate("/mypage")} />

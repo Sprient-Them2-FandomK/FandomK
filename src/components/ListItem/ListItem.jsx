@@ -1,21 +1,25 @@
-import React, { memo } from "react";
-
+import { memo } from "react";
 import { Item, Img, Rank, TextGroup, Name, ListVotes, RadioVisual } from "./ListItem.style.js";
 
-const listItem = ({ id, img, rank, name, votes, selected, onSelect }) => {
+const ListItem = ({ id, img, rank, name, votes, selected, onSelect, variant = "vote" }) => {
   const commaNum = (num) => Number(num).toLocaleString();
 
   return (
-    <Item $selected={selected} onClick={() => onSelect(id)}>
+    <Item
+      $variant={variant}
+      $selected={selected}
+      onClick={variant === "vote" ? () => onSelect?.(id) : undefined}
+    >
       <Img src={img} alt={name} />
       <Rank>{rank}</Rank>
       <TextGroup>
         <Name>{name}</Name>
         <ListVotes>{commaNum(votes)}표</ListVotes>
       </TextGroup>
-      <RadioVisual $selected={selected} />
+
+      {variant === "vote" && <RadioVisual $variant={variant} $selected={selected} />}
     </Item>
   );
 };
 
-export default memo(listItem);
+export default memo(ListItem);

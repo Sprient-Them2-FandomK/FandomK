@@ -7,16 +7,16 @@ export const FundingCard = styled.div`
 `;
 
 export const ImgWrapper = styled.div`
+  overflow: hidden;
   position: relative;
   margin-bottom: 8px;
   border-radius: 8px;
-  overflow: hidden;
 
   &::after {
     content: "";
     position: absolute;
     inset: 0;
-    background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 85%, rgba(0, 0, 0, 1) 100%);
+    background: linear-gradient(to bottom, rgb(0 0 0 / 0%) 85%, rgb(0 0 0 / 100%) 100%);
     pointer-events: none; /* 버튼 클릭 방해 안 하도록 */
   }
 
@@ -31,6 +31,7 @@ export const ImgWrapper = styled.div`
       width: 282px;
       height: 294px;
     }
+
     margin-bottom: 12px;
   }
 `;
@@ -42,17 +43,18 @@ export const DonationButton = styled.button`
   z-index: 1;
   width: 142px;
   height: 32px;
-  border-radius: 4px;
-  background: linear-gradient(to right, #f86f65, var(--pink-FE5493));
-  font-size: 1.3rem;
+
   font-weight: 700;
+  font-size: 1.3rem;
   line-height: 2.6rem;
+  border-radius: 4px;
+  background: linear-gradient(to right, #f86f65, var(--color-secondary));
 
   @media ${media.tablet} {
-    width: 234px;
-    height: 40px;
     bottom: 20px;
     left: 24px;
+    width: 234px;
+    height: 40px;
   }
 `;
 
@@ -61,6 +63,7 @@ export const TitleWrapper = styled.div`
   flex-direction: column;
   gap: 4px;
   margin-bottom: 20px;
+
   @media ${media.tablet} {
     margin-bottom: 24px;
     gap: 6px;
@@ -68,10 +71,10 @@ export const TitleWrapper = styled.div`
 `;
 
 export const SubTitle = styled.h4`
-  font-size: 1.2rem;
+  color: #666;
   font-weight: 400;
+  font-size: 1.2rem;
   line-height: 1.8rem;
-  color: #666666;
 
   @media ${media.tablet} {
     font-size: 1.6rem;
@@ -79,9 +82,9 @@ export const SubTitle = styled.h4`
 `;
 
 export const Title = styled.h4`
-  color: var(--white-F7F7F8);
-  font-size: 1.4rem;
+  color: var(--color-white-90);
   font-weight: 500;
+  font-size: 1.4rem;
 
   @media ${media.tablet} {
     font-size: 1.8rem;
@@ -91,17 +94,20 @@ export const Title = styled.h4`
 export const ToolTipContainer = styled.div`
   padding: 4px 12px;
   border-radius: 4px;
-  background-color: var(--black-181D26);
+
+  background-color: var(--color-bg-base);
+
   font-size: 1.4rem;
 `;
 
 export const DirectionWrapper = styled.div`
   display: flex;
-  justify-content: space-between;
   margin-bottom: 8px;
-  font-size: 1.2rem;
+
   font-weight: 400;
+  font-size: 1.2rem;
   line-height: 1.8rem;
+  justify-content: space-between;
 `;
 
 export const ChartWrapper = styled.div`
@@ -120,7 +126,8 @@ export const ReceivedDonations = styled.div`
   display: flex;
   align-items: center;
   gap: 2px;
-  color: var(--orange-F96D69);
+
+  color: var(--color-primary);
 
   img {
     width: 17px;

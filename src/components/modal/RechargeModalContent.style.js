@@ -13,31 +13,32 @@ export const CreditList = styled.div`
 `;
 
 export const Credit = styled.div`
-  border: 1px solid ${({ selected }) => (selected ? "var(--orange-F96D69)" : "var(--white-F7F7F8)")};
   display: flex;
   padding: 18px 20px;
+  border: 1px solid ${({ selected }) => (selected ? "var(--orange-F96D69)" : "var(--white-F7F7F8)")};
   align-items: center;
   border-radius: 8px;
   cursor: pointer;
 
   & > div {
-    flex: 1;
-    font-size: 20px;
+    color: var(--color-white-100);
     font-weight: 700;
-    color: var(--white-FFFFFF);
+    font-size: 20px;
+    flex: 1;
   }
 `;
 
 export const RechargeButton = styled.button`
+  display: flex;
   width: 295px;
   height: 42px;
-  background: linear-gradient(to right, var(--orange-F96D69), var(--pink-FE5493));
-  color: var(--white-FFFFFF);
-  font-size: 14px;
-  font-weight: 700;
   margin-top: 24px;
+
+  color: var(--color-white-100);
+  font-weight: 700;
+  font-size: 14px;
+  background: linear-gradient(to right, var(--color-primary), var(--color-secondary));
   border-radius: 3px;
-  display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;

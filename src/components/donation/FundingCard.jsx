@@ -1,4 +1,4 @@
-import credit from "@/assets/imgs/credit.png";
+import creditImg from "@/assets/imgs/credit.png";
 import { getRemainingDays } from "@/utils/date";
 import { Bar, BarChart, ResponsiveContainer, Tooltip, XAxis, YAxis } from "recharts";
 import * as S from "./FundingCard.style";
@@ -11,14 +11,21 @@ const CustomizedTooltip = ({ targetDonation, receivedDonations }) => {
   );
 };
 
-const FundingCard = ({ item }) => {
+const FundingCard = ({ item, onClick }) => {
   const deadline = getRemainingDays(item.deadline);
 
   return (
     <S.FundingCard>
       <S.ImgWrapper>
         <img src={item.idol.profilePicture} alt={item.idol.name} />
-        <S.DonationButton>후원하기</S.DonationButton>
+        <S.DonationButton
+          onClick={() => {
+            onClick.onOpen();
+            onClick.setModalContent(item);
+          }}
+        >
+          후원하기
+        </S.DonationButton>
       </S.ImgWrapper>
       <S.TitleWrapper>
         <S.SubTitle>{item.subtitle}</S.SubTitle>
@@ -26,7 +33,7 @@ const FundingCard = ({ item }) => {
       </S.TitleWrapper>
       <S.DirectionWrapper>
         <S.ReceivedDonations>
-          <img src={credit} alt="크레딧" />
+          <img src={creditImg} alt="크레딧" />
           {item.receivedDonations.toLocaleString()}
         </S.ReceivedDonations>
         <div> {deadline ? `${deadline}일 남음` : "기한 만료"}</div>

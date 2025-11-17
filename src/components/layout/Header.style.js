@@ -4,7 +4,8 @@ import styled from "styled-components";
 export const HeaderContainer = styled.div`
   width: 100%;
   height: 64px;
-  background-color: var(--black-02000E);
+
+  background-color: var(--color-bg-dark);
 
   @media ${media.desktop} {
     height: 80px;
@@ -13,18 +14,18 @@ export const HeaderContainer = styled.div`
 
 export const HeaderGlow = styled.img`
   position: absolute;
+  top: -49px;
+  left: -114px;
   width: 199px;
   height: 273px;
-  left: -114px;
-  top: -49px;
 `;
 
 export const HeaderContent = styled.div`
+  position: relative;
+  z-index: 1;
   width: 100%;
   height: 100%;
   margin: 0 auto;
-  position: relative;
-  z-index: 1;
 
   @media ${media.desktop} {
     width: 1200px;
@@ -32,11 +33,11 @@ export const HeaderContent = styled.div`
 `;
 
 export const HeaderLogo = styled.img`
+  position: absolute;
+  top: 50%;
+  left: 50%;
   width: 108px;
   height: 20.58px;
-  position: absolute;
-  left: 50%;
-  top: 50%;
   transform: translate(-50%, -50%);
   cursor: pointer;
 
@@ -52,13 +53,13 @@ export const HeaderLogo = styled.img`
 `;
 
 export const HeaderProfile = styled.img`
+  position: absolute;
+  top: 50%;
+  right: 24px;
   width: 32px;
   height: 32px;
   border-radius: 50%;
   object-fit: cover;
-  position: absolute;
-  right: 24px;
-  top: 50%;
   transform: translateY(-50%);
   cursor: pointer;
 

@@ -2,26 +2,30 @@ import { createGlobalStyle } from "styled-components";
 
 export const GlobalStyle = createGlobalStyle`
   :root {
-    /* black */
-    --black-02000E: #02000E;
-    --black-181D26: #181D26;
-    /* yellow */
-    --yellow-Dec030: #Dec030;
-    /* brand */
-    --orange-F96D69: #F96D69;
-    --pink-FE5493: #FE5493;
-    /* gray */
-    --gray-67666E: #67666E;
-    --gray-828282: #828282;
-    --gray-8C92AB: #8C92AB;
-    --gray-A3A5A8: #A3A5A8;
-    /* white */
-    --white-FFFFFF: #FFFFFF;
-    --white-F7F7F8: #F7F7F8;
+    /* Background */
+    --color-bg-dark: #02000E;
+    --color-bg-base: #181D26;
+    
+    /* Gray Scale */
+    --color-gray-600: #67666E;
+    --color-gray-500: #828282;
+    --color-gray-400: #8C92AB;
+    --color-gray-300: #A3A5A8;
+    
+    /* Brand */
+    --color-primary: #F96D69;
+    --color-secondary: #FE5493;
+    --color-accent: #DEC030;
+    
+    /* Neutral */
+    --color-white-100: #FFF;  /* 가장 밝은 텍스트 */
+    --color-white-90: #F7F7F8;   /* 약간 약한 텍스트 */
   }
 
+
   @font-face {
-    font-family: "Pretendard";
+    font-family: Pretendard;
+
     font-weight: 900;
     font-display: swap;
     src: local("Pretendard Black"),
@@ -30,7 +34,8 @@ export const GlobalStyle = createGlobalStyle`
   }
 
   @font-face {
-    font-family: "Pretendard";
+    font-family: Pretendard;
+
     font-weight: 800;
     font-display: swap;
     src: local("Pretendard ExtraBold"),
@@ -39,7 +44,8 @@ export const GlobalStyle = createGlobalStyle`
   }
 
   @font-face {
-    font-family: "Pretendard";
+    font-family: Pretendard;
+
     font-weight: 700;
     font-display: swap;
     src: local("Pretendard Bold"),
@@ -48,7 +54,8 @@ export const GlobalStyle = createGlobalStyle`
   }
 
   @font-face {
-    font-family: "Pretendard";
+    font-family: Pretendard;
+
     font-weight: 600;
     font-display: swap;
     src: local("Pretendard SemiBold"),
@@ -57,7 +64,8 @@ export const GlobalStyle = createGlobalStyle`
   }
 
   @font-face {
-    font-family: "Pretendard";
+    font-family: Pretendard;
+
     font-weight: 500;
     font-display: swap;
     src: local("Pretendard Medium"),
@@ -66,7 +74,8 @@ export const GlobalStyle = createGlobalStyle`
   }
 
   @font-face {
-    font-family: "Pretendard";
+    font-family: Pretendard;
+
     font-weight: 400;
     font-display: swap;
     src: local("Pretendard Regular"),
@@ -75,7 +84,8 @@ export const GlobalStyle = createGlobalStyle`
   }
 
   @font-face {
-    font-family: "Pretendard";
+    font-family: Pretendard;
+
     font-weight: 300;
     font-display: swap;
     src: local("Pretendard Light"),
@@ -84,7 +94,8 @@ export const GlobalStyle = createGlobalStyle`
   }
 
   @font-face {
-    font-family: "Pretendard";
+    font-family: Pretendard;
+
     font-weight: 200;
     font-display: swap;
     src: local("Pretendard ExtraLight"),
@@ -93,7 +104,8 @@ export const GlobalStyle = createGlobalStyle`
   }
 
   @font-face {
-    font-family: "Pretendard";
+    font-family: Pretendard;
+
     font-weight: 100;
     font-display: swap;
     src: local("Pretendard Thin"),
@@ -103,13 +115,14 @@ export const GlobalStyle = createGlobalStyle`
 
   * {
     margin: 0;
-    font-family: "Pretendard", sans-serif !important;
+    font-family: Pretendard, sans-serif !important;
     box-sizing: border-box;
   }
 
   html {
-    background: var(--black-02000E);
-    color: var(--white-F7F7F8);
+    background: var(--color-bg-dark);
+
+    color: var(--color-white-90);
     font-size: 10px;
   }
 
@@ -123,8 +136,9 @@ export const GlobalStyle = createGlobalStyle`
   h4,
   h5,
   h6 {
-    line-height: 2.6rem;
     margin: 0;
+
+    line-height: 2.6rem;
   }
 
   a {
@@ -147,9 +161,10 @@ export const GlobalStyle = createGlobalStyle`
   input,
   select,
   textarea {
-    font-family: inherit;
-    color: var(--white-F7F7F8);
     border: none;
+
+    color: var(--color-white-90);
+    font-family: inherit;
     background: none;
     outline: none;
   }
