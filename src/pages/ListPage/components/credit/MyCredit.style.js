@@ -1,6 +1,6 @@
 import { media } from "@/styles/media";
 import { TYPO } from "@/styles/typography";
-import { hexToRgba } from "@/utils/color";
+import { COLOR_VAR_MAP, hexToRgba } from "@/utils/color";
 import styled from "styled-components";
 
 export const Container = styled.div`
@@ -53,8 +53,8 @@ export const CreditPoint = styled.div`
 `;
 
 export const RechargeButton = styled.button`
-  color: var(--color-primary);
-  ${TYPO.caption14Bold}
+  color: ${hexToRgba(COLOR_VAR_MAP["--color-primary"])};
+  ${TYPO.caption14Bold};
   line-height: 26px;
   cursor: pointer;
 

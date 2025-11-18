@@ -1,6 +1,6 @@
 import { media } from "@/styles/media";
 import { TYPO } from "@/styles/typography";
-import { hexToRgba } from "@/utils/color";
+import { COLOR_VAR_MAP, hexToRgba } from "@/utils/color";
 import styled from "styled-components";
 
 export const FundingCard = styled.div`
@@ -64,7 +64,7 @@ export const SubTitle = styled.h4`
 `;
 
 export const Title = styled.h4`
-  color: var(--color-white-90);
+  color: ${hexToRgba(COLOR_VAR_MAP["--color-white-90"])};
   ${TYPO.body14Medium};
 
   @media ${media.tablet} {
@@ -76,7 +76,7 @@ export const ToolTipContainer = styled.div`
   padding: 4px 12px;
   border-radius: 4px;
 
-  background-color: var(--color-bg-base);
+  background-color: ${hexToRgba(COLOR_VAR_MAP["--color-bg-base"])};
 
   font-size: 1.4rem;
 `;

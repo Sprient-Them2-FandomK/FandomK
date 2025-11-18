@@ -1,5 +1,5 @@
 import { TYPO } from "@/styles/typography";
-import { hexToRgba } from "@/utils/color";
+import { COLOR_VAR_MAP, hexToRgba } from "@/utils/color";
 import styled from "styled-components";
 
 export const Container = styled.div`
@@ -30,6 +30,6 @@ export const TitleBar = styled.div`
 `;
 
 export const ModalTitle = styled.div`
-  color: var(--color-white-90);
+  color: ${hexToRgba(COLOR_VAR_MAP["--color-white-90"])};
   ${TYPO.title18SemiBold}
 `;

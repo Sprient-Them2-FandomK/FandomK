@@ -1,6 +1,6 @@
 import closePng from "@/assets/btn_delete_24px.png";
 import backPng from "@/assets/icj_arrow_left2.png";
-import { hexToRgba } from "@/utils/color";
+import { COLOR_VAR_MAP, hexToRgba } from "@/utils/color";
 import styled from "styled-components";
 
 export const Container = styled.div`
@@ -168,5 +168,5 @@ export const VoteNotice = styled.p`
 `;
 
 export const Credit = styled.span`
-  color: var(--color-primary);
+  color: ${hexToRgba(COLOR_VAR_MAP["--color-primary"])};
 `;

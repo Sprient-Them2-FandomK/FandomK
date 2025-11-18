@@ -1,6 +1,6 @@
 import { media } from "@/styles/media";
 import { TYPO } from "@/styles/typography";
-import { hexToRgba } from "@/utils/color";
+import { COLOR_VAR_MAP, hexToRgba } from "@/utils/color";
 import styled from "styled-components";
 
 // 전체 컨테이너 - max-width 1200px, flex column, gap 40px
@@ -36,7 +36,7 @@ export const AddIdolsSection = styled.section`
 // 섹션 제목 - 아래 마진 32px
 export const SectionTitle = styled.h2`
   ${TYPO.title18SemiBold};
-  color: var(--color-white-100);
+  color: ${hexToRgba(COLOR_VAR_MAP["--color-white-100"])};
   margin-bottom: 24px;
 
   @media ${media.tablet} {
@@ -84,7 +84,7 @@ export const Divider = styled.div`
   width: 100%;
   height: 1px;
 
-  background-color: var(--color-white-100);
+  background-color: ${hexToRgba(COLOR_VAR_MAP["--color-white-100"])};
 `;
 
 // 아이돌 그리드 컨테이너 (화살표 버튼 포함)

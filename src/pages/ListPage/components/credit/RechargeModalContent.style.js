@@ -1,4 +1,5 @@
 import { TYPO } from "@/styles/typography";
+import { COLOR_VAR_MAP, hexToRgba } from "@/utils/color";
 import styled from "styled-components";
 
 export const Container = styled.div`
@@ -17,7 +18,10 @@ export const Credit = styled.div`
   display: flex;
   padding: 18px 20px;
   border: 1px solid
-    ${({ selected }) => (selected ? "var(--color-primary)" : "var(--color-white-90)")};
+    ${({ selected }) =>
+      selected
+        ? `${hexToRgba(COLOR_VAR_MAP["--color-primary"])};`
+        : `${hexToRgba(COLOR_VAR_MAP["--color-white-90"])}`};
   align-items: center;
   border-radius: 8px;
   cursor: pointer;

@@ -1,3 +1,20 @@
+export const COLOR_VAR_MAP = {
+  "--color-bg-dark": "#02000E",
+  "--color-bg-base": "#181D26",
+
+  "--color-gray-600": "#67666E",
+  "--color-gray-500": "#828282",
+  "--color-gray-400": "#8C92AB",
+  "--color-gray-300": "#A3A5A8",
+
+  "--color-primary": "#F96D69",
+  "--color-secondary": "#FE5493",
+  "--color-accent": "#DEC030",
+
+  "--color-white-100": "#FFFFFF",
+  "--color-white-90": "#F7F7F8",
+};
+
 /**
  * HEX 색상을 rgba로 변환
  * @param {string} hex - #fff, #ffff, #ffffff, #ffffffff

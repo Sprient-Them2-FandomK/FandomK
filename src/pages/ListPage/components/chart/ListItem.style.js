@@ -1,5 +1,5 @@
 import { TYPO } from "@/styles/typography";
-import { hexToRgba } from "@/utils/color";
+import { COLOR_VAR_MAP, hexToRgba } from "@/utils/color";
 import styled from "styled-components";
 
 export const Item = styled.div`
@@ -18,14 +18,14 @@ export const Img = styled.img`
   width: 48px;
   height: 48px;
   border-radius: 50%;
-  border: 1px solid var(--color-primary);
+  border: 1px solid ${hexToRgba(COLOR_VAR_MAP["--color-primary"])};
   object-fit: cover;
 `;
 
 export const Rank = styled.span`
   width: 18px;
 
-  color: var(--color-primary);
+  color: ${hexToRgba(COLOR_VAR_MAP["--color-primary"])};
   ${TYPO.body14Medium}
   text-align: right;
   opacity: 0.9;
@@ -61,7 +61,9 @@ export const RadioVisual = styled.span`
   width: 18px;
   height: 18px;
   border-radius: 50%;
-  border: 2px solid ${({ $selected }) => ($selected ? "var(--color-primary)" : hexToRgba("#666"))};
+  border: 2px solid
+    ${({ $selected }) =>
+      $selected ? ` ${hexToRgba(COLOR_VAR_MAP["--color-primary"])}` : hexToRgba("#666")};
   align-items: center;
   justify-content: center;
 
@@ -70,7 +72,8 @@ export const RadioVisual = styled.span`
     width: 8px;
     height: 8px;
     border-radius: 50%;
-    background: ${({ $selected }) => ($selected ? "var(--color-primary)" : hexToRgba("#666"))};
+    background: ${({ $selected }) =>
+      $selected ? ` ${hexToRgba(COLOR_VAR_MAP["--color-primary"])}` : hexToRgba("#666")};
     transition: background 0.2s ease;
   }
 `;

@@ -1,5 +1,5 @@
 import { TYPO } from "@/styles/typography";
-import { hexToRgba } from "@/utils/color";
+import { COLOR_VAR_MAP, hexToRgba } from "@/utils/color";
 import styled from "styled-components";
 
 export const ChildrenWrapper = styled.div`
@@ -31,7 +31,7 @@ export const SubTitle = styled.h4`
 `;
 
 export const Title = styled.h4`
-  color: var(--color-white-90);
+  color: ${hexToRgba(COLOR_VAR_MAP["--color-white-90"])};
   ${TYPO.body14Medium}
 `;
 
@@ -43,7 +43,7 @@ export const FormContainer = styled.form`
 
 export const InputWrapper = styled.div`
   position: relative;
-  border: solid 1px var(--color-white-100);
+  border: solid 1px ${hexToRgba(COLOR_VAR_MAP["--color-white-100"])};
   border-radius: 8px;
   padding: 16px;
   padding-right: 48px;
@@ -54,7 +54,7 @@ export const InputWrapper = styled.div`
     padding: 0;
 
     ${TYPO.title20Bold}
-    color: var(--color-white-100);
+    color: ${hexToRgba(COLOR_VAR_MAP["--color-white-100"])};
   }
 
   img {

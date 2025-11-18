@@ -1,6 +1,6 @@
 import frame from "@/assets/Chart.png";
 import { TYPO } from "@/styles/typography";
-import { hexToRgba } from "@/utils/color";
+import { COLOR_VAR_MAP, hexToRgba } from "@/utils/color";
 import styled from "styled-components";
 
 export const Wrap = styled.section`
@@ -73,8 +73,10 @@ export const HeadTab = styled.button`
   ${TYPO.body14Medium};
   cursor: pointer;
   background: ${({ $active }) => ($active ? hexToRgba("#1b2029") : "")};
-  color: ${({ $active }) => ($active ? "var(--color-white-100)" : hexToRgba("#828282"))};
-  border-bottom: ${({ $active }) => ($active ? `2px solid var(--color-white-100)` : "none")};
+  color: ${({ $active }) =>
+    $active ? `${hexToRgba(COLOR_VAR_MAP["--color-white-100"])}` : hexToRgba("#828282")};
+  border-bottom: ${({ $active }) =>
+    $active ? `2px solid  ${hexToRgba(COLOR_VAR_MAP["--color-white-100"])}` : "none"};
   transition:
     background 0.2s ease,
     color 0.2s ease;

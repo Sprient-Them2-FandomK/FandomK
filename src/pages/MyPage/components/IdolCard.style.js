@@ -1,5 +1,5 @@
 import { TYPO } from "@/styles/typography";
-import { hexToRgba } from "@/utils/color";
+import { COLOR_VAR_MAP, hexToRgba } from "@/utils/color";
 import styled from "styled-components";
 
 // 이미지 사이즈 상수
@@ -33,7 +33,10 @@ export const ImageWrapper = styled.div`
   position: relative;
   width: ${(props) => WRAPPER_SIZES[props.$size]}px;
   border: 1px solid
-    ${(props) => (props.$selected ? "var(--color-primary)" : `${hexToRgba("#f96868")}`)};
+    ${(props) =>
+      props.$selected
+        ? `${hexToRgba(COLOR_VAR_MAP["--color-primary"])}`
+        : `${hexToRgba("#f96868")}`};
   aspect-ratio: 1;
   border-radius: 50%;
   justify-content: center;
@@ -83,7 +86,7 @@ export const DeleteButton = styled.button`
   padding: 0;
   border: 3px solid ${hexToRgba("#02000e")};
 
-  background-color: var(--color-white-100);
+  background-color: ${hexToRgba(COLOR_VAR_MAP["--color-white-100"])};
   border-radius: 50%;
   justify-content: center;
   align-items: center;
@@ -116,7 +119,7 @@ export const InfoSection = styled.div`
 
 // 멤버 이름
 export const MemberName = styled.div`
-  color: var(--color-white-100);
+  color: ${hexToRgba(COLOR_VAR_MAP["--color-white-100"])};
   ${TYPO.body16Bold};
 `;
 
