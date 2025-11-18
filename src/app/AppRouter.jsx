@@ -1,8 +1,8 @@
-import Homepage from "@/pages/Homepage";
-import Mypage from "@/pages/Mypage";
+import Homepage from "@/pages/HomePage";
+import ListPage from "@/pages/ListPage";
+import Mypage from "@/pages/MyPage";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import RootLayout from "./RootLayout";
-import ListPage from "@/pages/ListPage";
 
 const PATHS = {
   INDEX: "/",

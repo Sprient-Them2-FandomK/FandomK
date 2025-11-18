@@ -1,3 +1,5 @@
+import { TYPO } from "@/styles/typography";
+import { COLOR_VAR_MAP, hexToRgba } from "@/utils/color";
 import styled from "styled-components";
 
 export const Container = styled.div`
@@ -7,7 +9,7 @@ export const Container = styled.div`
   justify-content: center;
   align-items: center;
 
-  background-color: #000c;
+  background-color: ${hexToRgba("#000c")};
 `;
 
 export const ModalContainer = styled.div`
@@ -28,7 +30,6 @@ export const TitleBar = styled.div`
 `;
 
 export const ModalTitle = styled.div`
-  color: var(--color-white-90);
-  font-weight: 600;
-  font-size: 18px;
+  color: ${hexToRgba(COLOR_VAR_MAP["--color-white-90"])};
+  ${TYPO.title18SemiBold}
 `;

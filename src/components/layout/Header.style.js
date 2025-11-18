@@ -1,11 +1,12 @@
 import { media } from "@/styles/media";
+import { COLOR_VAR_MAP, hexToRgba } from "@/utils/color";
 import styled from "styled-components";
 
 export const HeaderContainer = styled.div`
   width: 100%;
   height: 64px;
 
-  background-color: var(--color-bg-dark);
+  background-color: ${hexToRgba(COLOR_VAR_MAP["--color-bg-dark"])};
 
   @media ${media.desktop} {
     height: 80px;
