@@ -6,24 +6,14 @@ export const Item = styled.div`
   display: flex;
   align-items: center;
   gap: 10px;
-  height: 70px;
-  padding: ${({ $variant }) => ($variant === "vote" ? "0 12px" : "0")};
   border-bottom: 1px solid ${hexToRgba("#E1E1E11A")};
-
   cursor: ${({ $variant }) => ($variant === "vote" ? "pointer" : "default")};
   transition: ${({ $variant }) => ($variant === "vote" ? "background 0.2s ease" : "none")};
+  padding: 8px 0;
 
   &:last-child {
     border: none;
   }
-`;
-
-export const Img = styled.img`
-  width: 48px;
-  height: 48px;
-  border-radius: 50%;
-  border: 1px solid ${hexToRgba(COLOR_VAR_MAP["--color-primary"])};
-  object-fit: cover;
 `;
 
 export const Rank = styled.span`

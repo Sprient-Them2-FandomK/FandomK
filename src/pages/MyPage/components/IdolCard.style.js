@@ -2,28 +2,16 @@ import { TYPO } from "@/styles/typography";
 import { COLOR_VAR_MAP, hexToRgba } from "@/utils/color";
 import styled from "styled-components";
 
-// 이미지 사이즈 상수
-export const IMAGE_SIZES = {
-  small: 86,
-  large: 115,
-};
-
-// wrapper 사이즈 (이미지 + 여백)
-export const WRAPPER_SIZES = {
-  small: 100,
-  large: 128,
-};
-
 // 카드 전체 컨테이너
 export const CardContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 8px;
-  cursor: ${(props) => (props.$clickable ? "pointer" : "default")};
+  cursor: ${({ $clickable }) => ($clickable ? "pointer" : "default")};
 
   &:hover {
-    opacity: ${(props) => (props.$clickable ? "0.9" : "1")};
+    opacity: ${({ $clickable }) => ($clickable ? "0.9" : "1")};
   }
 `;
 
@@ -31,27 +19,11 @@ export const CardContainer = styled.div`
 export const ImageWrapper = styled.div`
   display: flex;
   position: relative;
-  width: ${(props) => WRAPPER_SIZES[props.$size]}px;
-  border: 1px solid
-    ${(props) =>
-      props.$selected
-        ? `${hexToRgba(COLOR_VAR_MAP["--color-primary"])}`
-        : `${hexToRgba("#f96868")}`};
   aspect-ratio: 1;
   border-radius: 50%;
   justify-content: center;
   align-items: center;
-`;
 
-// 아이돌 이미지 컨테이너 (그라데이션 오버레이용)
-export const ImageContainer = styled.div`
-  position: relative;
-  width: ${(props) => IMAGE_SIZES[props.$size]}px;
-  aspect-ratio: 1;
-  border-radius: 50%;
-  overflow: hidden;
-
-  /* 선택 시 그라데이션 오버레이 */
   &::after {
     content: "";
     position: absolute;
@@ -61,18 +33,10 @@ export const ImageContainer = styled.div`
     height: 100%;
     border-radius: 50%;
     background: linear-gradient(180deg, var(--color-primary) 0%, ${hexToRgba("#fe578f")} 100%);
-    opacity: ${(props) => (props.$selected ? "0.5" : "0")};
+    opacity: ${({ $selected }) => ($selected ? "0.3" : "0")};
     pointer-events: none;
     transition: opacity 0.2s ease;
   }
-`;
-
-// 아이돌 이미지
-export const IdolImage = styled.img`
-  width: 100%;
-  height: 100%;
-  border-radius: 50%;
-  object-fit: cover;
 `;
 
 // 삭제 버튼

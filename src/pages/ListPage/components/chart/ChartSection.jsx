@@ -22,7 +22,7 @@ const ChartSection = () => {
 
   useEffect(() => {
     const loadIdols = async () => {
-      const res = await client.get("/idols");
+      const res = await client.get("/idols", { params: { pageSize: 100 } });
       const idols = res.data.list;
 
       const filtered = idols.filter((i) => i.gender === gender);

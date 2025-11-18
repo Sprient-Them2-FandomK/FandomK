@@ -1,12 +1,13 @@
 import MypageDelete from "@/assets/svg/MypageDeleteSvg";
+import IdolCircleImage from "@/components/common/IdolCircleImage";
 import * as S from "./IdolCard.style";
 
 const IdolCard = ({
   idol,
-  size = "large",
+  $size,
   onRemove,
   showDeleteButton = false,
-  selected = false,
+  $selected = false,
   onClick,
 }) => {
   const handleClick = () => {
@@ -18,10 +19,8 @@ const IdolCard = ({
   return (
     <S.CardContainer onClick={handleClick} $clickable={!!onClick}>
       {/* 이미지 영역 */}
-      <S.ImageWrapper $size={size} $selected={selected}>
-        <S.ImageContainer $size={size} $selected={selected}>
-          <S.IdolImage src={idol.profileImage} alt={idol.name} />
-        </S.ImageContainer>
+      <S.ImageWrapper $selected={$selected}>
+        <IdolCircleImage $size={$size} src={idol.profileImage} alt={idol.name} />
 
         {/* 삭제 버튼 */}
         {showDeleteButton && (
@@ -37,7 +36,7 @@ const IdolCard = ({
         )}
 
         {/* 체크 표시 */}
-        {selected && (
+        {$selected && (
           <S.CheckIcon>
             <svg width="60" height="60" viewBox="0 0 60 60" fill="none">
               <path

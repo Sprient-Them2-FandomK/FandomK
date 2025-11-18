@@ -234,7 +234,7 @@ const MyPage = () => {
                     group: idol.group,
                     profileImage: idol.profilePicture,
                   }}
-                  size="small"
+                  $size="md"
                   showDeleteButton={true}
                   onRemove={handleRemoveIdol}
                 />
@@ -273,8 +273,8 @@ const MyPage = () => {
                       group: idol.group,
                       profileImage: idol.profilePicture,
                     }}
-                    size="large"
-                    selected={selectedIds.includes(idol.id)}
+                    $size="lg"
+                    $selected={selectedIds.includes(idol.id)}
                     onClick={() => handleSelectIdol(idol.id)}
                   />
                 ))}
