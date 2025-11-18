@@ -1,17 +1,18 @@
 import frame from "@/assets/Chart.png";
+import { media } from "@/styles/media";
 import { TYPO } from "@/styles/typography";
 import { COLOR_VAR_MAP, hexToRgba } from "@/utils/color";
 import styled from "styled-components";
 
 export const Wrap = styled.section`
   width: 100%;
-  padding: 80px 0;
   display: flex;
   flex-direction: column;
   align-items: center;
+  padding: 0 24px 80px;
 
-  @media (width <= 1199px) {
-    padding: 0 24px;
+  @media (${media.desktop}) {
+    padding-bottom: 80px;
   }
 `;
 
@@ -22,19 +23,19 @@ export const ChartHeader = styled.div`
   grid-template-columns: 1fr auto;
   align-items: center;
   gap: 12px;
-  margin-bottom: 24px;
+  margin-bottom: 16px;
 
-  @media (width <= 744px) {
-    margin-bottom: 16px;
+  @media (${media.tablet}) {
+    margin-bottom: 24px;
   }
 `;
 
 export const H2 = styled.h2`
   margin: 0;
-  ${TYPO.titleMd}
+  font-size: 20px;
 
-  @media (width <= 744px) {
-    font-size: 20px;
+  @media (${media.tablet}) {
+    ${TYPO.titleMd}
   }
 `;
 
@@ -89,30 +90,27 @@ export const HeadTab = styled.button`
 
 export const Grid = styled.div`
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 24px;
   width: 100%;
   max-width: 1200px;
   margin: 0 auto;
 
-  @media (width <= 744px) {
-    grid-template-columns: 1fr;
-    gap: 0;
+  grid-template-columns: 1fr;
+  gap: 0;
+
+  @media (${media.tablet}) {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 24px;
   }
 `;
 
 export const Col = styled.div`
-  @media (width >= 744px) {
-    font-size: 16px;
-    padding: 24px 0 0;
-  }
-
-  &:last-child {
-    border-bottom: none; /* 마지막만 제거 */
-  }
-
   padding: 0;
-  font-size: 24px;
+  font-size: 14px;
+
+  @media (${media.tablet}) {
+    padding: 24px 0 0;
+    font-size: 16px;
+  }
 `;
 
 export const MoreArea = styled.div`

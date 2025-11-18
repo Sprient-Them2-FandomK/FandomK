@@ -1,103 +1,106 @@
 import closePng from "@/assets/btn_delete_24px.png";
 import backPng from "@/assets/icj_arrow_left2.png";
+import { media } from "@/styles/media";
 import { COLOR_VAR_MAP, hexToRgba } from "@/utils/color";
 import styled from "styled-components";
 
 export const Container = styled.div`
-  display: grid;
-  position: fixed;
+  display: block;
   z-index: 999;
-  inset: 0;
   background: ${hexToRgba("#000000B2")};
-  place-items: center;
+  inset: 0;
 
-  @media (width <= 524px) {
-    background: ${hexToRgba("#000000B2")};
-    display: block;
+  @media (${media.tablet}) {
+    position: fixed;
+    display: flex;
+    width: 100%;
+    height: 100%;
+    align-items: center;
+    justify-content: center;
   }
 `;
 
 export const Modal = styled.div`
-  display: flex;
-  overflow: hidden;
-  width: 100%;
-  height: 693px;
-  margin: 0 auto;
-  padding: 24px;
-
-  color: var(--color-white-100);
-  max-width: 524px;
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  max-width: none;
+  border-radius: 0;
+  padding: 16px;
   background: var(--color-bg-base);
-  flex-direction: column;
-  border-radius: 16px;
 
-  @media (width <= 524px) {
-    position: fixed;
-    inset: 0;
-    width: 100vw;
-    height: 100vh;
-    max-width: none;
-    border-radius: 0;
-    padding: 16px;
+  @media (${media.tablet}) {
+    position: static;
+    display: flex;
+    overflow: hidden;
+    width: 100%;
+    height: 693px;
+    margin: 0 auto;
+    padding: 24px;
+
+    color: var(--color-white-100);
+    max-width: 524px;
+    flex-direction: column;
+    border-radius: 16px;
   }
 `;
 
 export const Header = styled.div`
-  display: flex;
-  width: 100%;
-  height: 24px;
-  padding-bottom: 34px;
-  justify-content: space-between;
+  display: none;
 
-  @media (width <= 524px) {
-    display: none;
+  @media (${media.tablet}) {
+    display: flex;
+    width: 100%;
+    height: 24px;
+    padding-bottom: 34px;
+    justify-content: space-between;
   }
 `;
 
 export const MobileHeader = styled.div`
-  display: none;
+  display: flex;
+  position: relative;
+  width: 100%;
+  height: 44px;
+  justify-content: space-between;
+  align-items: center;
 
-  @media (width <= 524px) {
-    display: flex;
-    position: relative;
-    width: 100%;
-    height: 44px;
-    justify-content: space-between;
-    align-items: center;
+  @media (${media.tablet}) {
+    display: none;
   }
 `;
 
 export const Rbox = styled.div`
-  display: none;
+  display: block;
+  width: 24px;
+  height: 24px;
 
-  @media (width <= 524px) {
-    display: block;
-    width: 24px;
-    height: 24px;
+  @media (${media.tablet}) {
+    display: none;
   }
 `;
 
 export const BackBtn = styled.button`
-  display: none;
+  display: block;
   width: 24px;
   height: 24px;
   background: url(${backPng}) no-repeat center / contain;
   border: 0;
   cursor: pointer;
 
-  @media (width <= 524px) {
-    display: block;
+  @media (${media.tablet}) {
+    display: none;
   }
 `;
 
 export const Title = styled.h2`
   margin: 0;
+  font-size: 14px;
 
-  font-weight: 500;
-  font-size: 18px;
-
-  @media (width <= 524px) {
-    font-size: 14px;
+  @media (${media.tablet}) {
+    font-weight: 500;
+    font-size: 18px;
   }
 `;
 
@@ -110,54 +113,37 @@ export const CloseBtn = styled.button`
 `;
 
 export const List = styled.div`
-  flex: 1;
-  width: 100%;
-  min-height: 0;
-  overflow-y: auto;
+  height: 100%;
 
-  /* 스크롤바 숨김(필요 시 제거 가능) */
-  scrollbar-width: none;
-  -ms-overflow-style: none;
+  @media (${media.tablet}) {
+    flex: 1;
+    min-height: 0;
+    overflow-y: auto;
 
-  &:-webkit-scrollbar {
-    display: none;
-  }
+    /* 스크롤바 숨김(필요 시 제거 가능) */
+    scrollbar-width: none;
+    -ms-overflow-style: none;
 
-  @media (width <= 524px) {
-    height: 100%;
+    &:-webkit-scrollbar {
+      display: none;
+    }
   }
 `;
 
 export const Vote = styled.div`
+  margin: 0 auto;
+
+  position: fixed;
+  bottom: 0;
+  z-index: 10;
+  height: 106px;
+  background: transparent;
+  pointer-events: none;
   width: 100%;
 
-  text-align: center;
-
-  @media (width <= 524px) {
-    position: fixed;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    z-index: 10;
-    height: 106px;
-    background: transparent;
-    pointer-events: none;
-  }
-`;
-
-export const TransparentOverlay = styled.div`
-  display: none;
-
-  @media (width <= 524px) {
-    display: block;
-    position: fixed;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    z-index: 9;
-    height: 106px;
-    background: ${hexToRgba("#000000B2")};
-    pointer-events: none;
+  @media (${media.tablet}) {
+    position: static;
+    text-align: center;
   }
 `;
 

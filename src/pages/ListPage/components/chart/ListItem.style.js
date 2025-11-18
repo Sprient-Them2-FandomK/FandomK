@@ -12,6 +12,10 @@ export const Item = styled.div`
 
   cursor: ${({ $variant }) => ($variant === "vote" ? "pointer" : "default")};
   transition: ${({ $variant }) => ($variant === "vote" ? "background 0.2s ease" : "none")};
+
+  &:last-child {
+    border: none;
+  }
 `;
 
 export const Img = styled.img`
