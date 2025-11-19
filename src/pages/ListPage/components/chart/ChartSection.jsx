@@ -1,4 +1,4 @@
-import client from "@/api/client";
+import { getChartList } from "@/api/chartClient";
 import HighlightButton from "@/components/common/HighlightButton";
 import useModal from "@/hooks/useModal";
 import { useEffect, useState } from "react";
@@ -25,9 +25,8 @@ const ChartSection = () => {
   useEffect(() => {
     const loadIdols = async () => {
       try {
-        const res = await client.get("/idols", { params: { pageSize: 100 } });
-        const idols = res.data.list;
-
+        const res = await getChartList({ pageSize: 10, gender: gender });
+        const idols = res.idols;
         const filtered = idols.filter((i) => i.gender === gender);
 
         const sorted = filtered
