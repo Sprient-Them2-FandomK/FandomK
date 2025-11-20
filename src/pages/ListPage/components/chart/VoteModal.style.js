@@ -126,6 +126,10 @@ export const List = styled.div`
   }
 
   padding-bottom: 140px;
+
+  @media (${media.tablet}) {
+    padding-bottom: 0;
+  }
 `;
 
 export const Vote = styled.div`
