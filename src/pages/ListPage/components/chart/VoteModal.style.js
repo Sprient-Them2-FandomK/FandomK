@@ -28,7 +28,7 @@ export const Modal = styled.div`
   max-width: none;
   border-radius: 0;
   padding: 16px;
-  background: var(--color-bg-base);
+  background: ${hexToRgba(COLOR_VAR_MAP["--color-bg-base"])};
 
   @media (${media.tablet}) {
     position: static;
@@ -115,18 +115,20 @@ export const CloseBtn = styled.button`
 export const List = styled.div`
   height: 100%;
 
+  overflow-y: scroll;
+
+  /* 스크롤바 숨김(필요 시 제거 가능) */
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+
+  &:-webkit-scrollbar {
+    display: none;
+  }
+
+  padding-bottom: 140px;
+
   @media (${media.tablet}) {
-    flex: 1;
-    min-height: 0;
-    overflow-y: auto;
-
-    /* 스크롤바 숨김(필요 시 제거 가능) */
-    scrollbar-width: none;
-    -ms-overflow-style: none;
-
-    &:-webkit-scrollbar {
-      display: none;
-    }
+    padding-bottom: 0;
   }
 `;
 
@@ -137,7 +139,7 @@ export const Vote = styled.div`
   bottom: 0;
   z-index: 10;
   height: 106px;
-  background: transparent;
+  background: ${hexToRgba(COLOR_VAR_MAP["--color-bg-base"])};
   width: 100%;
 
   @media (${media.tablet}) {

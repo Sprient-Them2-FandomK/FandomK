@@ -1,8 +1,9 @@
 name: Deploy Release to Vercel
 
 on:
-  release:
-    types: [published]
+  workflow_run:
+    workflows: ["Create release & tag"]
+    types: [completed]
 
 jobs:
   deploy:

@@ -1,64 +1,30 @@
 import client from "@/api/client";
+import useCreditContext from "@/app/contexts/CreditContext";
 import HighlightButton from "@/components/common/HighlightButton";
-import { creditStorage } from "@/storage/credit.storage";
 import { media } from "@/styles/media";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { css } from "styled-components";
 import CreditLimitModal from "./CreditLimitModal";
 import ListItem from "./ListItem";
 import * as S from "./VoteModal.style";
 
-const VoteModal = ({ onClose, initialGender = "female" }) => {
-  const [gender] = useState(initialGender);
-  const [list, setList] = useState([]);
+const NEED_CREDIT = 1000;
+
+const VoteModal = ({ onClose, modalContent, handleTrigger }) => {
   const [selectedId, setSelectedId] = useState(null);
-
+  const [_, { isEnoughCredit, subtractCredit }] = useCreditContext();
   const [isCreditModalOpen, setIsCreditModalOpen] = useState(false);
-
-  useEffect(() => {
-    const fetchIdols = async () => {
-      const res = await client.get("/idols");
-      const idols = res.data.list;
-
-      const filtered = idols.filter((i) => i.gender === gender);
-
-      const sorted = filtered
-        .sort((a, b) => b.totalVotes - a.totalVotes)
-        .map((i, idx) => ({
-          id: i.id,
-          name: i.name,
-          img: i.profilePicture,
-          votes: i.totalVotes,
-          rank: idx + 1,
-        }));
-
-      setList(sorted);
-    };
-
-    fetchIdols();
-  }, [gender]);
 
   const submit = async () => {
     if (!selectedId) return;
-
-    const currentCredit = creditStorage.get() || 0;
-
-    if (currentCredit < 1000) {
+    if (!isEnoughCredit(NEED_CREDIT)) {
       setIsCreditModalOpen(true);
       return;
     }
 
-    const res = await client.post("/votes", { idolId: selectedId });
-    const updated = res.data.idol;
-
-    creditStorage.set(currentCredit - 1000);
-
-    const newList = list
-      .map((i) => (i.id === updated.id ? { ...i, votes: updated.totalVotes } : i))
-      .sort((a, b) => b.votes - a.votes)
-      .map((i, idx) => ({ ...i, rank: idx + 1 }));
-
-    setList(newList);
+    await client.post("/votes", { idolId: selectedId });
+    subtractCredit(NEED_CREDIT);
+    handleTrigger();
     setSelectedId(null);
   };
 
@@ -68,17 +34,21 @@ const VoteModal = ({ onClose, initialGender = "female" }) => {
         <S.Modal onClick={(e) => e.stopPropagation()}>
           <S.MobileHeader>
             <S.BackBtn onClick={onClose} aria-label="뒤로" />
-            <S.Title>{gender === "female" ? "이달의 여자 아이돌" : "이달의 남자 아이돌"}</S.Title>
+            <S.Title>
+              {modalContent.gender === "female" ? "이달의 여자 아이돌" : "이달의 남자 아이돌"}
+            </S.Title>
             <S.Rbox />
           </S.MobileHeader>
 
           <S.Header>
-            <S.Title>{gender === "female" ? "이달의 여자 아이돌" : "이달의 남자 아이돌"}</S.Title>
+            <S.Title>
+              {modalContent.gender === "female" ? "이달의 여자 아이돌" : "이달의 남자 아이돌"}
+            </S.Title>
             <S.CloseBtn onClick={onClose} />
           </S.Header>
 
           <S.List>
-            {list.map((c) => (
+            {modalContent.list.map((c) => (
               <ListItem
                 key={c.id}
                 {...c}
@@ -108,7 +78,7 @@ const VoteModal = ({ onClose, initialGender = "female" }) => {
               투표하기
             </HighlightButton>
             <S.VoteNotice>
-              투표하는 데 <S.Credit>1000</S.Credit> 크레딧이 소모됩니다.
+              투표하는 데 <S.Credit>{NEED_CREDIT}</S.Credit> 크레딧이 소모됩니다.
             </S.VoteNotice>
           </S.Vote>
         </S.Modal>

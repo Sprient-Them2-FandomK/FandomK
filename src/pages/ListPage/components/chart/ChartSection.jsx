@@ -1,4 +1,4 @@
-import client from "@/api/client";
+import { getChartList } from "@/api/chartClient";
 import HighlightButton from "@/components/common/HighlightButton";
 import useModal from "@/hooks/useModal";
 import { useEffect, useState } from "react";
@@ -15,8 +15,8 @@ const ChartSection = () => {
   const getInitWidth = () => (typeof window !== "undefined" ? window.innerWidth : BREAKPOINT);
 
   const [gender, setGender] = useState("female");
-  const { isOpen, onOpen, onClose } = useModal();
-
+  const { isOpen, onOpen, onClose, modalContent, setModalContent } = useModal();
+  const [trigger, setTrigger] = useState(false);
   const [windowWidth, setWindowWidth] = useState(getInitWidth());
   const [visibleCount, setVisibleCount] = useState(getInitWidth() >= BREAKPOINT ? 10 : 5);
 
@@ -25,9 +25,8 @@ const ChartSection = () => {
   useEffect(() => {
     const loadIdols = async () => {
       try {
-        const res = await client.get("/idols", { params: { pageSize: 100 } });
-        const idols = res.data.list;
-
+        const res = await getChartList({ pageSize: 100, gender: gender });
+        const idols = res.idols;
         const filtered = idols.filter((i) => i.gender === gender);
 
         const sorted = filtered
@@ -41,12 +40,13 @@ const ChartSection = () => {
           }));
 
         setList(sorted);
+        setModalContent({ list: sorted, gender: gender });
       } catch (e) {
         showBoundary(e);
       }
     };
     loadIdols();
-  }, [gender, showBoundary]);
+  }, [gender, showBoundary, setModalContent, trigger]);
 
   useEffect(() => {
     const onResize = () => setWindowWidth(window.innerWidth);
@@ -74,6 +74,10 @@ const ChartSection = () => {
 
   const handleMore = () => {
     setVisibleCount((v) => Math.min(v + 5, data.length));
+  };
+
+  const handleTrigger = () => {
+    setTrigger((pre) => !pre);
   };
 
   let gridContent;
@@ -109,7 +113,10 @@ const ChartSection = () => {
         <S.RightArea>
           <HighlightButton
             type="button"
-            onClick={onOpen}
+            onClick={() => {
+              onOpen();
+              setModalContent({ list: list, gender: gender });
+            }}
             $customStyle={css`
               display: flex;
               width: 128px;
@@ -154,7 +161,9 @@ const ChartSection = () => {
         </S.MoreBtn>
       </S.MoreArea>
 
-      {isOpen && <VoteModal onClose={onClose} initialGender={gender} />}
+      {isOpen && (
+        <VoteModal modalContent={modalContent} onClose={onClose} handleTrigger={handleTrigger} />
+      )}
     </S.Wrap>
   );
 };
