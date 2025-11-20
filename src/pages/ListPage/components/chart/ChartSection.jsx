@@ -15,7 +15,7 @@ const ChartSection = () => {
   const getInitWidth = () => (typeof window !== "undefined" ? window.innerWidth : BREAKPOINT);
 
   const [gender, setGender] = useState("female");
-  const { isOpen, onOpen, onClose } = useModal();
+  const { isOpen, onOpen, onClose, modalContent, setModalContent } = useModal();
 
   const [windowWidth, setWindowWidth] = useState(getInitWidth());
   const [visibleCount, setVisibleCount] = useState(getInitWidth() >= BREAKPOINT ? 10 : 5);
@@ -40,12 +40,13 @@ const ChartSection = () => {
           }));
 
         setList(sorted);
+        setModalContent({ list: sorted, gender: gender });
       } catch (e) {
         showBoundary(e);
       }
     };
     loadIdols();
-  }, [gender, showBoundary]);
+  }, [gender, showBoundary, setModalContent]);
 
   useEffect(() => {
     const onResize = () => setWindowWidth(window.innerWidth);
@@ -108,7 +109,10 @@ const ChartSection = () => {
         <S.RightArea>
           <HighlightButton
             type="button"
-            onClick={onOpen}
+            onClick={() => {
+              onOpen();
+              setModalContent({ list: list, gender: gender });
+            }}
             $customStyle={css`
               display: flex;
               width: 128px;
@@ -153,7 +157,7 @@ const ChartSection = () => {
         </S.MoreBtn>
       </S.MoreArea>
 
-      {isOpen && <VoteModal onClose={onClose} initialGender={gender} />}
+      {isOpen && <VoteModal modalContent={modalContent} onClose={onClose} />}
     </S.Wrap>
   );
 };
